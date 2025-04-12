@@ -1,24 +1,15 @@
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, useState } from "react";
 import useLoadVerbs from "../hooks/useLoadVerbs";
 import getRandomVerb from "../utils/getRandomVerb";
-import Verb from "../models/Verb";
 import FeedbackMessage from "./FeedbackMessage";
 import VerbInputForm from "./VerbInputForm";
 
 export default function ConjugationForm() {
-  const { verbs, loading, error } = useLoadVerbs("/data/conjugated_verbs.csv");
+  const { verbs, verbToConjugate, setVerbToConjugate, loading, error } =
+    useLoadVerbs("/data/conjugated_verbs.csv");
   const [spanishVerb, setSpanishVerb] = useState("");
-  const [isCorrect, setIsCorrect] = useState(false);
-  const [isWrong, setIsWrong] = useState(false);
+  const [answer, setAnswer] = useState("");
   const [correctVerb, setCorrectVerb] = useState<string | undefined>("");
-  const [verbToConjugate, setVerbToConjugate] = useState<Verb | null>(null);
-
-  // set new random verb once verbs are loaded
-  useEffect(() => {
-    if (!loading && Object.keys(verbs).length > 0) {
-      setVerbToConjugate(getRandomVerb(verbs));
-    }
-  }, [loading, verbs]);
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -27,14 +18,11 @@ export default function ConjugationForm() {
       verbToConjugate?.conjugations.indicative.present.singular?.first;
 
     if (spanishVerb === expected) {
-      setIsCorrect(true);
-      setIsWrong(false);
-      setCorrectVerb(expected);
+      setAnswer("correct");
       setVerbToConjugate(getRandomVerb(verbs));
       setSpanishVerb("");
     } else {
-      setIsWrong(true);
-      setIsCorrect(false);
+      setAnswer("wrong");
       setCorrectVerb(expected);
     }
   };
@@ -44,11 +32,7 @@ export default function ConjugationForm() {
 
   return (
     <div className="conjugation">
-      <FeedbackMessage
-        isCorrect={isCorrect}
-        isWrong={isWrong}
-        correctVerb={correctVerb}
-      />
+      <FeedbackMessage messageType={answer} correctVerb={correctVerb} />
       <VerbInputForm
         value={spanishVerb}
         onChange={setSpanishVerb}

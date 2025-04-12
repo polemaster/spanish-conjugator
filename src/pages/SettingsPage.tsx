@@ -1,36 +1,123 @@
+import {
+  useSettings,
+  Mood,
+  Person,
+  Settings,
+} from "../contexts/SettingsContext";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+
+const allMoods: Mood[] = ["indicative", "subjunctive", "imperative"];
+const allTenses: Record<Mood, string[]> = {
+  indicative: ["present", "preterite", "imperfect"],
+  subjunctive: ["present", "imperfect"],
+  imperative: ["affirmative", "negative"],
+};
+
+const allPersons: Person[] = ["first", "second", "third"];
 
 function SettingsPage() {
-  const [tense, setTense] = useState<string>("Presente"); // Default value
-  const navigate = useNavigate();
+  const { settings, updateSettings } = useSettings();
+  const [localSettings, setLocalSettings] = useState<Settings>(settings);
 
-  // Handle the tense change
-  const handleTenseChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setTense(event.target.value);
-    // Store the setting in localStorage (for persistence)
-    localStorage.setItem("selectedTense", event.target.value);
+  const toggleTense = (mood: Mood, tense: string) => {
+    const current = localSettings.moods[mood] || [];
+    const updated = current.includes(tense)
+      ? current.filter((t) => t !== tense)
+      : [...current, tense];
+    setLocalSettings({
+      ...localSettings,
+      moods: { ...localSettings.moods, [mood]: updated },
+    });
   };
 
-  // Save the selection and redirect to home page
+  const togglePerson = (person: Person) => {
+    const updated = localSettings.persons.includes(person)
+      ? localSettings.persons.filter((p) => p !== person)
+      : [...localSettings.persons, person];
+    setLocalSettings({ ...localSettings, persons: updated });
+  };
+
   const saveSettings = () => {
-    // Navigate to home page (optional if using react-router)
-    navigate("/home");
+    updateSettings(localSettings);
+    alert("Settings saved!");
   };
 
   return (
-    <div>
-      <h1>Settings</h1>
-      <label>
-        Select Tense:
-        <select value={tense} onChange={handleTenseChange}>
-          <option value="Presente">Presente</option>
-          <option value="Pretérito">Pretérito</option>
-          <option value="Futuro">Futuro</option>
-          {/* Add more tenses as needed */}
-        </select>
-      </label>
-      <button onClick={saveSettings}>Save Settings</button>
+    <div className="max-w-2xl mx-auto p-6 space-y-6">
+      <h1 className="text-2xl font-bold">Settings</h1>
+
+      <div className="space-y-4">
+        {allMoods.map((mood) => (
+          <div key={mood}>
+            <h2 className="text-lg font-semibold capitalize">{mood}</h2>
+            <div className="flex gap-4 flex-wrap">
+              {allTenses[mood].map((tense) => (
+                <label key={tense} className="flex items-center gap-2">
+                  <input
+                    type="checkbox"
+                    checked={localSettings.moods[mood]?.includes(tense)}
+                    onChange={() => toggleTense(mood, tense)}
+                  />
+                  {tense}
+                </label>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div>
+        <h2 className="text-lg font-semibold">Persons</h2>
+        <div className="flex gap-4">
+          {allPersons.map((person) => (
+            <label key={person} className="flex items-center gap-2">
+              <input
+                type="checkbox"
+                checked={localSettings.persons.includes(person)}
+                onChange={() => togglePerson(person)}
+              />
+              {person}
+            </label>
+          ))}
+        </div>
+      </div>
+
+      <div>
+        <label className="flex items-center gap-2">
+          <input
+            type="checkbox"
+            checked={localSettings.topVerbsOnly}
+            onChange={(e) =>
+              setLocalSettings({
+                ...localSettings,
+                topVerbsOnly: e.target.checked,
+              })
+            }
+          />
+          Use only most common verbs
+        </label>
+        {localSettings.topVerbsOnly && (
+          <input
+            type="number"
+            min={1}
+            value={localSettings.topVerbLimit}
+            onChange={(e) =>
+              setLocalSettings({
+                ...localSettings,
+                topVerbLimit: Number(e.target.value),
+              })
+            }
+            className="ml-4 px-2 py-1 border border-gray-300 rounded w-20"
+          />
+        )}
+      </div>
+
+      <button
+        onClick={saveSettings}
+        className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded"
+      >
+        Save Settings
+      </button>
     </div>
   );
 }

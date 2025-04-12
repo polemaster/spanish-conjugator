@@ -9,7 +9,7 @@ const loadVerbs = async (csvPath: string): Promise<Record<string, Verb>> => {
   const response = await fetch(csvPath);
   const csvText = await response.text();
 
-  await sleep(1000);
+  // await sleep(1000);
 
   return new Promise((resolve, reject) => {
     Papa.parse<VerbRow>(csvText, {
