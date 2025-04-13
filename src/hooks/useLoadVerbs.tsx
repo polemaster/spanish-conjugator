@@ -1,4 +1,3 @@
-// hooks/useLoadVerbs.ts
 import { useEffect, useState } from "react";
 import loadVerbs from "../services/data/loadVerbs";
 import Verb from "../models/Verb";

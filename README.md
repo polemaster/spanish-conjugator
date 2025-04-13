@@ -1,3 +1,11 @@
+# Spanish conjugator
+
+## Description
+
+This website was created to learn how to conjugate Spanish verbs. You are told the infinitive of the verb, the mood, tense and person and you need to type the correct conjugation.
+
+## Notes for me
+
 ### Recommended Project Structure:
 
 - /src

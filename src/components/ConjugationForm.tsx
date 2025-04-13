@@ -3,6 +3,7 @@ import useLoadVerbs from "../hooks/useLoadVerbs";
 import getRandomVerb from "../utils/getRandomVerb";
 import FeedbackMessage from "./FeedbackMessage";
 import VerbInputForm from "./VerbInputForm";
+import useRandomConjugation from "../hooks/useRandomConjugation";
 
 export default function ConjugationForm() {
   const { verbs, verbToConjugate, setVerbToConjugate, loading, error } =
@@ -10,16 +11,22 @@ export default function ConjugationForm() {
   const [spanishVerb, setSpanishVerb] = useState("");
   const [answer, setAnswer] = useState("");
   const [correctVerb, setCorrectVerb] = useState<string | undefined>("");
+  const { mood, tense, person, setRandomConjugation } = useRandomConjugation();
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    console.log(verbs["abandonar"]);
+
     const expected =
-      verbToConjugate?.conjugations.indicative.present.singular?.first;
+      verbToConjugate?.conjugations[mood][tense][person.number]?.[
+        person.person
+      ];
 
     if (spanishVerb === expected) {
       setAnswer("correct");
       setVerbToConjugate(getRandomVerb(verbs));
+      setRandomConjugation();
       setSpanishVerb("");
     } else {
       setAnswer("wrong");
@@ -39,8 +46,8 @@ export default function ConjugationForm() {
         onSubmit={handleSubmit}
         prompt={
           <>
-            Type 1st person sing. conjugation of{" "}
-            <strong>{verbToConjugate.infinitive}</strong> (
+            {JSON.stringify(person) + " " + mood + " " + tense + " "}
+            <strong>{verbToConjugate.infinitive}</strong> <br />(
             {verbToConjugate.english})
           </>
         }

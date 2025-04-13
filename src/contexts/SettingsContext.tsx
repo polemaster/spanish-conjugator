@@ -1,36 +1,25 @@
 import { createContext, useContext, useEffect, useState } from "react";
-
-export type Mood = "indicative" | "subjunctive" | "imperative" | "conditional";
-export type Tense = string;
-export type Person = "first" | "second" | "third";
+import { GroupedPerson, Person } from "../models/Person";
+import defaultSettings from "../constants/defaultSettings";
 
 export interface Settings {
-  moods: Record<Mood, Tense[]>;
-  persons: Person[];
-  topVerbsOnly: boolean;
-  topVerbLimit: number;
+  selectedTenses: string[];
+  selectedPersons: GroupedPerson[];
 }
-
-const defaultSettings: Settings = {
-  moods: {
-    indicative: ["present"],
-    subjunctive: [],
-    imperative: ["affirmative"],
-  },
-  persons: ["first", "second"],
-  topVerbsOnly: false,
-  topVerbLimit: 50,
-};
 
 const SettingsContext = createContext<{
   settings: Settings;
-  updateSettings: (newSettings: Settings) => void;
+  toggleTense: (tenseKey: string) => void;
+  togglePerson: (person: Person) => void;
+  isPersonSelected: (person: Person) => boolean;
 }>({
   settings: defaultSettings,
-  updateSettings: () => {},
+  toggleTense: () => {},
+  togglePerson: () => {},
+  isPersonSelected: () => false,
 });
 
-export const useSettings = () => useContext(SettingsContext);
+export const useSettingsContext = () => useContext(SettingsContext);
 
 export const SettingsProvider = ({
   children,
@@ -38,18 +27,59 @@ export const SettingsProvider = ({
   children: React.ReactNode;
 }) => {
   const [settings, setSettings] = useState<Settings>(() => {
-    const stored = localStorage.getItem("app-settings");
+    const stored = localStorage.getItem("settings");
     return stored ? JSON.parse(stored) : defaultSettings;
   });
 
   useEffect(() => {
-    localStorage.setItem("app-settings", JSON.stringify(settings));
+    localStorage.setItem("settings", JSON.stringify(settings));
   }, [settings]);
 
-  const updateSettings = (newSettings: Settings) => setSettings(newSettings);
+  const toggleTense = (tenseKey: string) => {
+    const selected = settings.selectedTenses.includes(tenseKey)
+      ? settings.selectedTenses.filter((k) => k !== tenseKey)
+      : [...settings.selectedTenses, tenseKey];
+
+    setSettings((prev) => ({
+      ...prev,
+      selectedTenses: selected,
+    }));
+  };
+
+  const togglePerson = ({ number, person }: Person) => {
+    const updated = [...settings.selectedPersons];
+    const group = updated.find((g) => g.number === number);
+
+    if (group) {
+      if (group.person.includes(person)) {
+        group.person = group.person.filter((p) => p !== person);
+        if (group.person.length === 0) {
+          // remove group entirely
+          setSettings({
+            ...settings,
+            selectedPersons: updated.filter((g) => g.number !== number),
+          });
+          return;
+        }
+      } else {
+        group.person.push(person);
+      }
+    } else {
+      updated.push({ number, person: [person] });
+    }
+
+    setSettings({ ...settings, selectedPersons: updated });
+  };
+
+  const isPersonSelected = ({ number, person }: Person) => {
+    const group = settings.selectedPersons.find((g) => g.number === number);
+    return group ? group.person.includes(person) : false;
+  };
 
   return (
-    <SettingsContext.Provider value={{ settings, updateSettings }}>
+    <SettingsContext.Provider
+      value={{ settings, toggleTense, togglePerson, isPersonSelected }}
+    >
       {children}
     </SettingsContext.Provider>
   );
