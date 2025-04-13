@@ -24,12 +24,7 @@ export default function VerbInputForm({
       onSubmit={onSubmit}
       className="max-w-md mx-auto mt-10 p-4 bg-white shadow rounded"
     >
-      <label
-        htmlFor="verb-input"
-        className="block mb-2 text-medium font-medium text-gray-700"
-      >
-        {prompt}
-      </label>
+      <div className="mb-4">{prompt}</div>
       <input
         id="verb-input"
         type="text"
