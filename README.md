@@ -1,34 +1,29 @@
-# Spanish conjugator
+# Spanish verbs conjugator
 
 ## Description
 
-This website was created to learn how to conjugate Spanish verbs. You are told the infinitive of the verb, the mood, tense and person and you need to type the correct conjugation.
+This website was created to learn how to conjugate Spanish verbs. You are told the infinitive of the verb, the mood, tense and person and you need to type the correct conjugation. For more info, see [Project Details](#project-details) below. Here is how the app looks like:
 
-## Notes for me
+img
 
-### Recommended Project Structure:
+## Running
 
-- /src
-  - /components ← UI components (.tsx)
-  - /pages ← Page-level components/routes (.tsx)
-  - /hooks ← Custom React hooks (.ts or .tsx)
-  - /lib ← Utilities, helpers, general-purpose logic (.ts)
-  - /services ← API calls, storage handlers, data loaders/savers (.ts)
-  - /models ← TypeScript types/interfaces (.ts)
-  - /store ← State management (Redux/Zustand/etc.) (.ts)
-  - /config ← App config, constants, env logic (.ts)
-  - /assets ← Static files (images, fonts, etc.)
-  - /styles ← CSS or Tailwind configs
+Follow these steps:
 
-### Where to put files:
+1. Clone the project in the CLI: `git clone https://github.com/polemaster/spanish-conjugator.git`
+1. `cd spanish-conjugator`
+1. `npm install`
+1. `npm run dev`
+1. Open the given link in the browser (usually, http://localhost:5173/) and you are ready to go.
 
-- Business logic - _/lib_ - Pure logic, reusable, no React imports
-- File loading/saving (e.g. localStorage, API) - _/services_ - Separation of side effects from logic
-- TypeScript types/interfaces - _/models_ - Keeps types clean and centralized
-- Utility/helper functions - _/lib_ or _/utils_ - Some devs prefer utils, same idea
-- Constants/configs - _/config_ - For app-wide constants, settings
+## Project Details
 
-## Errors found in spanish verb db:
+### Technology
 
-- fortalecer (to fortify, to strenthen) -> to strengthen
-- prepararse (to get) -> to get ready, to prepare
+- Typescript
+- React library
+- Tailwind CSS for styling
+
+### Other
+
+All conjugations of the Spanish verbs were taken from [here](https://github.com/ghidinelli/fred-jehle-spanish-verbs).
