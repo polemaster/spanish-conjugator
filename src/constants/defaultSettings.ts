@@ -10,6 +10,7 @@ const defaultSettings: Settings = {
     { number: "singular", person: ["first", "second", "third"] },
     { number: "plural", person: ["first", "third"] },
   ],
+  topNVerbs: 100,
 };
 
 export default defaultSettings;

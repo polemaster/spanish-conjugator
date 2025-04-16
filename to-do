@@ -1,6 +1,4 @@
-2. It's not working ( look at console logs ) -> parsing to fix
 3. add other settings:
-  - selection of person
   - participle & gerund
   - top n most common words
 4. add other pages:
@@ -8,6 +6,8 @@
   - verb conjugations search
 5. person selector - refactor
 6. useRandomConjugation.ts  - refactor
-
-
-person to change
+7. use context for verbs - faster loading when moving between pages; change max value of top n popular verbs in settings
+8. Split settings into multiple re-usable components (SettingContainer.tsx) and use .map() to iterate them:
+  - Select moods and tenses
+  - Select Persons
+  - Select how many most used verbs you want to learn

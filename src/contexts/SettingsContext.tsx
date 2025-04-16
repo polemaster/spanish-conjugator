@@ -5,6 +5,7 @@ import defaultSettings from "../constants/defaultSettings";
 export interface Settings {
   selectedTenses: string[];
   selectedPersons: GroupedPerson[];
+  topNVerbs: number;
 }
 
 const SettingsContext = createContext<{
@@ -12,11 +13,13 @@ const SettingsContext = createContext<{
   toggleTense: (tenseKey: string) => void;
   togglePerson: (person: Person) => void;
   isPersonSelected: (person: Person) => boolean;
+  setTopNVerbs: (value: number) => void;
 }>({
   settings: defaultSettings,
   toggleTense: () => {},
   togglePerson: () => {},
   isPersonSelected: () => false,
+  setTopNVerbs: () => {},
 });
 
 export const useSettingsContext = () => useContext(SettingsContext);
@@ -76,9 +79,19 @@ export const SettingsProvider = ({
     return group ? group.person.includes(person) : false;
   };
 
+  const setTopNVerbs = (value: number) => {
+    setSettings((prev) => ({ ...prev, topNVerbs: value }));
+  };
+
   return (
     <SettingsContext.Provider
-      value={{ settings, toggleTense, togglePerson, isPersonSelected }}
+      value={{
+        settings,
+        toggleTense,
+        togglePerson,
+        isPersonSelected,
+        setTopNVerbs,
+      }}
     >
       {children}
     </SettingsContext.Provider>
