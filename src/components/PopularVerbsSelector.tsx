@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useSettingsContext } from "../contexts/SettingsContext";
 import PopularVerbsSwitch from "./PopularVerbsSwitch";
-import defaultSettings from "../constants/defaultSettings";
 
 function PopularVerbsSelector() {
   const { settings, setTopNVerbs } = useSettingsContext();

@@ -4,14 +4,14 @@ type Props = {
   value: string;
   onChange: (val: string) => void;
   onSubmit: (e: FormEvent<HTMLFormElement>) => void;
-  prompt: React.ReactNode;
+  children?: React.ReactNode;
 };
 
 export default function VerbInputForm({
   value,
   onChange,
   onSubmit,
-  prompt,
+  children,
 }: Props) {
   const inputRef = useRef<HTMLInputElement | null>(null);
 
@@ -24,7 +24,7 @@ export default function VerbInputForm({
       onSubmit={onSubmit}
       className="max-w-md mx-auto mt-10 p-4 bg-white shadow rounded"
     >
-      <div className="mb-4">{prompt}</div>
+      <div className="mb-4">{children}</div>
       <input
         id="verb-input"
         type="text"

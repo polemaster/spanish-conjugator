@@ -34,10 +34,10 @@ function useRandomConjugation() {
 
   const [mood, setMood] = useState<string>("indicative");
   const [tense, setTense] = useState<string>("present");
-  const [person, setPerson] = useState<{
-    number: "singular" | "plural";
-    person: "first" | "second" | "third";
-  }>({ number: "singular", person: "second" });
+  const [person, setPerson] = useState<Person>({
+    number: "singular",
+    person: "second",
+  });
 
   function setRandomConjugation() {
     // if (!settings.selectedTenses.length || !settings.selectedPersons.length)

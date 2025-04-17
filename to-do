@@ -5,9 +5,11 @@
   - theory
   - verb conjugations search
 5. person selector - refactor
-6. useRandomConjugation.ts  - refactor
+6. useRandomConjugation.ts  - refactor, settings has any type
 7. use context for verbs - faster loading when moving between pages; change max value of top n popular verbs in settings
 8. Split settings into multiple re-usable components (SettingContainer.tsx) and use .map() to iterate them:
   - Select moods and tenses
   - Select Persons
   - Select how many most used verbs you want to learn
+9. Remove scrolling from home page
+10. add score

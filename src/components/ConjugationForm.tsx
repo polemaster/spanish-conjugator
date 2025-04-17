@@ -4,8 +4,8 @@ import getRandomVerb from "../utils/getRandomVerb";
 import FeedbackMessage from "./FeedbackMessage";
 import VerbInputForm from "./VerbInputForm";
 import useRandomConjugation from "../hooks/useRandomConjugation";
-import { getPronounKey, pronounMap } from "../constants/pronouns";
 import { useFeedbackMessage } from "../hooks/useFeedbackMessageEffect";
+import VerbPrompt from "./VerbPrompt";
 
 export default function ConjugationForm() {
   const [spanishVerb, setSpanishVerb] = useState("");
@@ -44,24 +44,18 @@ export default function ConjugationForm() {
         correctVerb={correctVerb}
         isVisible={showFeedback}
       />
-      <div className="mt-4">
-        <VerbInputForm
-          value={spanishVerb}
-          onChange={setSpanishVerb}
-          onSubmit={handleSubmit}
-          prompt={
-            <>
-              <div className="text-center text-medium mb-4">
-                {mood === "indicative" ? "" : mood} {tense}
-              </div>
-              <div className="text-center text-lg">
-                {pronounMap[getPronounKey(person)]}{" "}
-                <strong>{verbToConjugate.infinitive}</strong>
-              </div>
-            </>
-          }
+      <VerbInputForm
+        value={spanishVerb}
+        onChange={setSpanishVerb}
+        onSubmit={handleSubmit}
+      >
+        <VerbPrompt
+          mood={mood}
+          tense={tense}
+          person={person}
+          verbToConjugate={verbToConjugate}
         />
-      </div>
+      </VerbInputForm>
     </div>
   );
 }
