@@ -9,11 +9,34 @@ import VerbPrompt from "./VerbPrompt";
 
 export default function ConjugationForm() {
   const [spanishVerb, setSpanishVerb] = useState("");
-  const { verbs, verbToConjugate, setVerbToConjugate, loading, error } =
-    useLoadVerbs("/data/conjugated_verbs.csv");
+  const {
+    verbs,
+    verbToConjugate,
+    setVerbToConjugate,
+    loading,
+    error,
+    topVerbs,
+  } = useLoadVerbs(
+    "/data/conjugated_verbs.csv",
+    "/data/verbs_by_frequency2.csv",
+  );
   const { mood, tense, person, setRandomConjugation } = useRandomConjugation();
   const { answer, setAnswer, correctVerb, setCorrectVerb, showFeedback } =
     useFeedbackMessage();
+
+  // Step 1: Create list of cleaned verb infinitives
+  const allInfinitives = Object.keys(verbs).map((infinitive) => {
+    return infinitive.endsWith("se") ? infinitive.slice(0, -2) : infinitive;
+  });
+
+  // Step 2: Remove duplicates after cleaning (optional, but safe)
+  const uniqueInfinitives = Array.from(new Set(allInfinitives));
+
+  // Step 3: Compare with topVerbs
+  const notInTopVerbs = uniqueInfinitives.filter(
+    (verb) => !topVerbs.includes(verb),
+  );
+  console.log(notInTopVerbs);
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
