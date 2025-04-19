@@ -24,20 +24,6 @@ export default function ConjugationForm() {
   const { answer, setAnswer, correctVerb, setCorrectVerb, showFeedback } =
     useFeedbackMessage();
 
-  // Step 1: Create list of cleaned verb infinitives
-  const allInfinitives = Object.keys(verbs).map((infinitive) => {
-    return infinitive.endsWith("se") ? infinitive.slice(0, -2) : infinitive;
-  });
-
-  // Step 2: Remove duplicates after cleaning (optional, but safe)
-  const uniqueInfinitives = Array.from(new Set(allInfinitives));
-
-  // Step 3: Compare with topVerbs
-  const notInTopVerbs = uniqueInfinitives.filter(
-    (verb) => !topVerbs.includes(verb),
-  );
-  console.log(notInTopVerbs);
-
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 

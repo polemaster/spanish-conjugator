@@ -24,9 +24,36 @@ function useLoadVerbs(verbsPath: string, topVerbsPath: string) {
       });
   }, [verbsPath]);
 
+  // Problem - verbs should be loaded before this
   useEffect(() => {
     loadTopVerbs(topVerbsPath)
       .then((loadedVerbs) => {
+        // Is it deep cloning??? TODO
+        const infinitives = Object.keys(verbs).map((infinitive) => {
+          return infinitive.endsWith("se")
+            ? infinitive.slice(0, -2)
+            : infinitive;
+        });
+
+        const uniqueInfinitives = Array.from(new Set(infinitives));
+
+        const correctInfinitives = uniqueInfinitives.filter((verb) =>
+          topVerbs.includes(verb),
+        );
+
+        // sort the new verbs by frequency
+        const indexMap = new Map<string, number>();
+        loadedVerbs.forEach((verb, index) => indexMap.set(verb, index));
+
+        correctInfinitives.sort((a, b) => {
+          const indexA = indexMap.get(a) ?? Infinity;
+          const indexB = indexMap.get(b) ?? Infinity;
+          return indexA - indexB;
+        });
+
+        console.log(correctInfinitives);
+        console.log(verbs);
+
         setTopVerbs(loadedVerbs);
         // setVerbToConjugate(getRandomVerb(loadedVerbs));
         // setLoading(false);
