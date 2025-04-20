@@ -5,7 +5,7 @@ import defaultSettings from "../constants/defaultSettings";
 export interface Settings {
   selectedTenses: string[];
   selectedPersons: GroupedPerson[];
-  topNVerbs: number;
+  numberOfTopVerbs: number;
 }
 
 const SettingsContext = createContext<{
@@ -80,7 +80,7 @@ export const SettingsProvider = ({
   };
 
   const setTopNVerbs = (value: number) => {
-    setSettings((prev) => ({ ...prev, topNVerbs: value }));
+    setSettings((prev) => ({ ...prev, numberOfTopVerbs: value }));
   };
 
   return (

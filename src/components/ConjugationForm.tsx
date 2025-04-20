@@ -9,17 +9,8 @@ import VerbPrompt from "./VerbPrompt";
 
 export default function ConjugationForm() {
   const [spanishVerb, setSpanishVerb] = useState("");
-  const {
-    verbs,
-    verbToConjugate,
-    setVerbToConjugate,
-    loading,
-    error,
-    topVerbs,
-  } = useLoadVerbs(
-    "/data/conjugated_verbs.csv",
-    "/data/verbs_by_frequency2.csv",
-  );
+  const { verbToConjugate, setVerbToConjugate, loading, error, topVerbs } =
+    useLoadVerbs("/data/conjugated_verbs.csv", "/data/verbs_by_frequency2.csv");
   const { mood, tense, person, setRandomConjugation } = useRandomConjugation();
   const { answer, setAnswer, correctVerb, setCorrectVerb, showFeedback } =
     useFeedbackMessage();
@@ -34,9 +25,10 @@ export default function ConjugationForm() {
 
     if (spanishVerb === expected) {
       setAnswer("correct");
-      setVerbToConjugate(getRandomVerb(verbs));
+      setVerbToConjugate(getRandomVerb(topVerbs));
       setRandomConjugation();
       setSpanishVerb("");
+      console.log("all verbs: " + Object.keys(topVerbs));
     } else {
       setAnswer("wrong");
       setCorrectVerb(expected);

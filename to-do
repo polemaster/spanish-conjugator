@@ -1,6 +1,5 @@
 3. add other settings:
   - participle & gerund
-  - top n most common words
 4. add other pages:
   - theory
   - verb conjugations search
@@ -13,3 +12,7 @@
   - Select how many most used verbs you want to learn
 9. Remove scrolling from home page
 10. add score
+11. get random element from an array  - create a function (and remove getRandomVerb)
+12. verbs array to remove
+13. Make settings and home pages buttons bigger
+14. What to do with reflexive verbs - most frequent verbs don't have them

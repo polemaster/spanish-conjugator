@@ -7,9 +7,11 @@ function PopularVerbsSelector() {
   const MIN_VERBS = 1;
   const MAX_VERBS = 1000;
 
-  const [topNInput, setTopNInput] = useState(settings.topNVerbs.toString());
+  const [topNInput, setTopNInput] = useState(
+    settings.numberOfTopVerbs.toString(),
+  );
 
-  const isUsingAllVerbs = settings.topNVerbs === MAX_VERBS;
+  const isUsingAllVerbs = settings.numberOfTopVerbs === MAX_VERBS;
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTopNInput(e.target.value);
@@ -18,7 +20,7 @@ function PopularVerbsSelector() {
   const handleBlur = () => {
     const raw = parseInt(topNInput, 10);
     const new_value = isNaN(raw)
-      ? settings.topNVerbs
+      ? settings.numberOfTopVerbs
       : Math.max(MIN_VERBS, Math.min(raw, MAX_VERBS));
 
     setTopNVerbs(new_value);
