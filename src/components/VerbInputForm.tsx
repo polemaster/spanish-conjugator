@@ -26,7 +26,6 @@ export default function VerbInputForm({
     >
       <div className="mb-4">{children}</div>
       <input
-        id="verb-input"
         type="text"
         ref={inputRef}
         value={value}

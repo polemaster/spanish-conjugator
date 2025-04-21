@@ -1,16 +1,17 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { GroupedPerson, Person } from "../models/Person";
 import defaultSettings from "../constants/defaultSettings";
+import { Mood } from "../models/Mood";
 
 export interface Settings {
-  selectedTenses: string[];
+  selectedTenses: Record<Mood, string[]>;
   selectedPersons: GroupedPerson[];
   numberOfTopVerbs: number;
 }
 
 const SettingsContext = createContext<{
   settings: Settings;
-  toggleTense: (tenseKey: string) => void;
+  toggleTense: (mood: Mood, tenseKey: string) => void;
   togglePerson: (person: Person) => void;
   isPersonSelected: (person: Person) => boolean;
   setTopNVerbs: (value: number) => void;
@@ -38,14 +39,22 @@ export const SettingsProvider = ({
     localStorage.setItem("settings", JSON.stringify(settings));
   }, [settings]);
 
-  const toggleTense = (tenseKey: string) => {
-    const selected = settings.selectedTenses.includes(tenseKey)
-      ? settings.selectedTenses.filter((k) => k !== tenseKey)
-      : [...settings.selectedTenses, tenseKey];
+  /*
+  Available moods: /src/models/Mood.ts
+  Available tenses: /src/constants/tenses.ts (English ones)
+   */
+  const toggleTense = (mood: Mood, tense: string) => {
+    const currentTenses = settings.selectedTenses[mood] || [];
+    const updatedTenses = currentTenses.includes(tense)
+      ? currentTenses.filter((t) => t !== tense)
+      : [...currentTenses, tense];
 
     setSettings((prev) => ({
       ...prev,
-      selectedTenses: selected,
+      selectedTenses: {
+        ...prev.selectedTenses,
+        [mood]: updatedTenses,
+      },
     }));
   };
 

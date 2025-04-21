@@ -1,33 +1,9 @@
 import { useEffect, useState } from "react";
 import { useSettingsContext } from "../contexts/SettingsContext";
-// import { getRandomElement } from "../utils/helpers"; // you'll create this
 import parseTense from "../utils/parseTense";
 import { Person } from "../models/Person";
-
-function getRandomElement<T>(arr: T[]): T {
-  return arr[Math.floor(Math.random() * arr.length)];
-}
-
-function getRandomPerson(settings) {
-  // Extract the selectedPersons array
-  const selectedPersons = settings.selectedPersons as {
-    number: "singular" | "plural";
-    person: string[];
-  }[];
-
-  // Flatten the selectedPersons array to get individual Person objects
-  const flattenedPersons: Person[] = selectedPersons.flatMap(
-    ({ number, person }) =>
-      person.map((p) => ({
-        number,
-        person: p as "first" | "second" | "third",
-      })),
-  );
-
-  // Select a random Person
-  const randomIndex = Math.floor(Math.random() * flattenedPersons.length);
-  return flattenedPersons[randomIndex];
-}
+import { getRandomTense } from "../utils/getRandomTense";
+import getRandomPerson from "../utils/getRandomPerson";
 
 function useRandomConjugation() {
   const { settings } = useSettingsContext();
@@ -40,16 +16,21 @@ function useRandomConjugation() {
   });
 
   function setRandomConjugation() {
-    // if (!settings.selectedTenses.length || !settings.selectedPersons.length)
-    if (!settings.selectedTenses.length) return;
+    const result = getRandomTense(settings.selectedTenses);
 
-    const randomTense = getRandomElement(settings.selectedTenses);
-    const [newMood, newTense] = parseTense(randomTense);
-    const newPerson = getRandomPerson(settings);
-
-    setMood(newMood);
-    setTense(newTense);
-    setPerson(newPerson);
+    if (result) {
+      const [randomMood, randomTense] = parseTense(result.mood, result.tense);
+      const newPerson = getRandomPerson(
+        settings.selectedPersons,
+        result.mood,
+        result.tense,
+      );
+      setMood(randomMood);
+      setTense(randomTense);
+      setPerson(newPerson);
+    } else {
+      console.log("No tenses selected in settings.");
+    }
   }
 
   useEffect(() => {

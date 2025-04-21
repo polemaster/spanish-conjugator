@@ -39,7 +39,7 @@ function PopularVerbsSelector() {
   };
 
   return (
-    <div className="mt-8">
+    <div className="settings-box">
       <h2 className="text-xl font-bold mb-2">
         Select how many most used verbs you want to learn
       </h2>

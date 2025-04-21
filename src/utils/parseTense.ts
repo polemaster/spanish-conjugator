@@ -1,9 +1,22 @@
-export default function parseTense(key: string): [string, string] {
-  let [mood, tense] = key.split(".");
+import { Mood } from "../models/Mood";
+
+/*
+Convert mood and tense from settings format to verbs format
+Example 1: { "indicative", "Present" } -> { "indicative", "present" }
+Example 2: { "imperative", "Affirmative" } -> { "imperative affirmative", "present" }
+ */
+export default function parseTense(
+  mood: Mood,
+  tense: string,
+): [string, string] {
+  let new_mood: string = mood;
   tense = tense.toLowerCase();
-  if (mood == "imperative") {
-    mood = mood + " " + tense;
+  if (mood === "imperative") {
+    new_mood = mood + " " + tense;
     tense = "present";
   }
-  return [mood, tense];
+  if (mood === "other") {
+    if (tense === "past participle") new_mood = "pastParticiple";
+  }
+  return [new_mood, tense];
 }

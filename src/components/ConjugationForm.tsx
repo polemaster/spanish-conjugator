@@ -6,6 +6,7 @@ import VerbInputForm from "./VerbInputForm";
 import useRandomConjugation from "../hooks/useRandomConjugation";
 import { useFeedbackMessage } from "../hooks/useFeedbackMessageEffect";
 import VerbPrompt from "./VerbPrompt";
+import getConjugation from "../utils/getConjugation";
 
 export default function ConjugationForm() {
   const [spanishVerb, setSpanishVerb] = useState("");
@@ -18,17 +19,36 @@ export default function ConjugationForm() {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const expected =
-      verbToConjugate?.conjugations[mood][tense][person.number]?.[
-        person.person
-      ];
+    if (!verbToConjugate) return;
+    const expected = getConjugation(verbToConjugate, mood, tense, person);
 
+    // For debugging purposes
+    if (!expected) {
+      console.log("expected verb is empty");
+      console.log(
+        "mood: " +
+          mood +
+          ", tense: " +
+          tense +
+          ", person: " +
+          JSON.stringify(person),
+      );
+      console.log(verbToConjugate);
+      console.log(verbToConjugate?.conjugations);
+      console.log(verbToConjugate?.conjugations[mood]);
+      console.log(verbToConjugate?.conjugations[mood][tense]);
+      console.log(verbToConjugate?.conjugations[mood][tense][person.number]);
+      console.log(
+        verbToConjugate?.conjugations[mood][tense][person.number]?.[
+          person.person
+        ],
+      );
+    }
     if (spanishVerb === expected) {
       setAnswer("correct");
       setVerbToConjugate(getRandomVerb(topVerbs));
       setRandomConjugation();
       setSpanishVerb("");
-      console.log("all verbs: " + Object.keys(topVerbs));
     } else {
       setAnswer("wrong");
       setCorrectVerb(expected);
@@ -39,7 +59,7 @@ export default function ConjugationForm() {
   if (loading || !verbToConjugate) return <div>Loading verbs...</div>;
 
   return (
-    <div className="conjugation max-w-md mx-auto p-4 pt-16 relative">
+    <div className="max-w-md mx-auto p-4 pt-16 relative">
       <FeedbackMessage
         messageType={answer}
         correctVerb={correctVerb}

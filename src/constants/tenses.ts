@@ -26,4 +26,8 @@ export const tenseData: Record<Mood, Tense[]> = {
     { spanish: "Afirmativo", english: "Affirmative" },
     { spanish: "Negativo", english: "Negative" },
   ],
+  other: [
+    { spanish: "Gerundio", english: "Gerund" },
+    { spanish: "Participio Pasado", english: "Past Participle" },
+  ],
 };

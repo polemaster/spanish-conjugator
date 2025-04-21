@@ -22,7 +22,12 @@ const loadVerbs = async (csvPath: string): Promise<Record<string, Verb>> => {
           const infinitive = row.infinitive.trim();
 
           if (!verbs[infinitive]) {
-            verbs[infinitive] = new Verb(infinitive, row.infinitive_english);
+            verbs[infinitive] = new Verb(
+              infinitive,
+              row.infinitive_english,
+              row.gerund,
+              row.pastparticiple,
+            );
           }
 
           verbs[infinitive].addConjugation(

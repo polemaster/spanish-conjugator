@@ -10,13 +10,16 @@ interface Props {
 }
 
 function VerbPrompt({ mood, tense, person, verbToConjugate }: Props) {
+  let new_mood = mood;
+  if (mood === "imperative affirmative" && tense === "present") tense = "";
+  if (mood === "other" || mood === "indicative") new_mood = "";
   return (
     <>
       <div className="text-center text-medium mb-4">
-        {mood === "indicative" ? "" : mood} {tense}
+        {new_mood} {tense}
       </div>
       <div className="text-center text-lg">
-        {pronounMap[getPronounKey(person)]}{" "}
+        {mood !== "other" ? pronounMap[getPronounKey(person)] + " " : ""}
         <strong>{verbToConjugate.infinitive}</strong>
       </div>
     </>

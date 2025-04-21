@@ -12,6 +12,8 @@ type VerbRow = {
   form_1p: string;
   form_2p: string;
   form_3p: string;
+  gerund: string;
+  pastparticiple: string;
 };
 
 export default VerbRow;

@@ -15,7 +15,7 @@ const PersonSelector = () => {
   ]);
 
   return (
-    <div className="p-4 bg-white shadow-lg rounded-lg">
+    <div className="settings-box">
       <h2 className="text-xl font-bold mb-4">Select Persons</h2>
 
       <div className="grid grid-cols-2 gap-4">

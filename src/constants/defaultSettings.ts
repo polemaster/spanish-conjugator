@@ -1,11 +1,16 @@
 import { Settings } from "../contexts/SettingsContext";
 
+/*
+  Available moods: /src/models/Mood.ts
+  Available tenses: /src/constants/tenses.ts (English ones)
+*/
 const defaultSettings: Settings = {
-  selectedTenses: [
-    "indicative.Present",
-    "indicative.Preterite",
-    "indicative.Imperfect",
-  ],
+  selectedTenses: {
+    indicative: ["Present", "Preterite", "Imperfect"],
+    subjunctive: [],
+    imperative: [],
+    other: [],
+  },
   selectedPersons: [
     { number: "singular", person: ["first", "second", "third"] },
     { number: "plural", person: ["first", "third"] },

@@ -1,8 +1,14 @@
 import VerbRow from "./VerbRow";
 
+/*
+Available moods: "indicative", "subjunctive", "imperative affirmative", "imperative negative"
+Available tenses: "present", "present perfect", etc.
+ */
 class Verb {
   infinitive: string;
   english: string;
+  gerund: string;
+  pastParticiple: string;
   conjugations: {
     [mood: string]: {
       [tense: string]: {
@@ -20,9 +26,16 @@ class Verb {
     };
   };
 
-  constructor(infinitive: string, english: string) {
+  constructor(
+    infinitive: string,
+    english: string,
+    gerund: string,
+    pastParticiple: string,
+  ) {
     this.infinitive = infinitive;
     this.english = english;
+    this.gerund = gerund;
+    this.pastParticiple = pastParticiple;
     this.conjugations = {};
   }
 

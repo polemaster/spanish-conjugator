@@ -9,12 +9,11 @@ type Props = {
 
 export default function TenseRow({ tense, mood }: Props) {
   const { settings, toggleTense } = useSettingsContext();
-  const key = `${mood}.${tense.english}`;
-  const selected = settings.selectedTenses.includes(key);
+  const selected = settings.selectedTenses[mood].includes(tense.english);
 
   return (
     <tr
-      onClick={() => toggleTense(key)}
+      onClick={() => toggleTense(mood, tense.english)}
       className={`cursor-pointer ${
         selected ? "bg-blue-100" : "hover:bg-gray-50"
       }`}
@@ -24,9 +23,9 @@ export default function TenseRow({ tense, mood }: Props) {
           <input
             type="checkbox"
             checked={selected}
-            onChange={() => toggleTense(key)}
+            onChange={() => toggleTense(mood, tense.english)}
             onClick={(e) => e.stopPropagation()}
-            className="h-5 w-5"
+            className="h-5 w-5 cursor-pointer"
           />
         </div>
       </td>
