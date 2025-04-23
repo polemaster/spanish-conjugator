@@ -7,12 +7,14 @@ import useRandomConjugation from "../hooks/useRandomConjugation";
 import { useFeedbackMessage } from "../hooks/useFeedbackMessageEffect";
 import VerbPrompt from "./VerbPrompt";
 import getConjugation from "../utils/getConjugation";
+import convertTense from "../utils/convertTense";
 
 export default function ConjugationForm() {
   const [spanishVerb, setSpanishVerb] = useState("");
   const { verbToConjugate, setVerbToConjugate, loading, error, topVerbs } =
     useLoadVerbs("/data/conjugated_verbs.csv", "/data/verbs_by_frequency2.csv");
-  const { mood, tense, person, setRandomConjugation } = useRandomConjugation();
+  const { moodDisplay, tenseDisplay, person, setRandomConjugation } =
+    useRandomConjugation();
   const { answer, setAnswer, correctVerb, setCorrectVerb, showFeedback } =
     useFeedbackMessage();
 
@@ -20,10 +22,12 @@ export default function ConjugationForm() {
     e.preventDefault();
 
     if (!verbToConjugate) return;
-    const expected = getConjugation(verbToConjugate, mood, tense, person);
+
+    const [mood, tense] = convertTense(moodDisplay, tenseDisplay);
+    const expectedVerb = getConjugation(verbToConjugate, mood, tense, person);
 
     // For debugging purposes
-    if (!expected) {
+    if (!expectedVerb) {
       console.log("expected verb is empty");
       console.log(
         "mood: " +
@@ -44,14 +48,14 @@ export default function ConjugationForm() {
         ],
       );
     }
-    if (spanishVerb === expected) {
+    if (spanishVerb === expectedVerb) {
       setAnswer("correct");
       setVerbToConjugate(getRandomVerb(topVerbs));
       setRandomConjugation();
       setSpanishVerb("");
     } else {
       setAnswer("wrong");
-      setCorrectVerb(expected);
+      setCorrectVerb(expectedVerb);
     }
   };
 
@@ -71,8 +75,8 @@ export default function ConjugationForm() {
         onSubmit={handleSubmit}
       >
         <VerbPrompt
-          mood={mood}
-          tense={tense}
+          mood={moodDisplay}
+          tense={tenseDisplay}
           person={person}
           verbToConjugate={verbToConjugate}
         />

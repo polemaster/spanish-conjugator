@@ -2,18 +2,6 @@ import { allPersons, getPronounKey } from "../constants/pronouns";
 import PersonButton from "../components/PersonButton";
 
 const PersonSelector = () => {
-  const singularPersons = allPersons.filter(
-    (person) => person.number === "singular",
-  );
-  const pluralPersons = allPersons.filter(
-    (person) => person.number === "plural",
-  );
-
-  const interlacedPersons = singularPersons.flatMap((singular, index) => [
-    singular,
-    pluralPersons[index],
-  ]);
-
   return (
     <div className="settings-box">
       <h2 className="text-xl font-bold mb-4">Select Persons</h2>
@@ -26,7 +14,7 @@ const PersonSelector = () => {
           Plural
         </div>
 
-        {interlacedPersons.map((person) => (
+        {allPersons.map((person) => (
           <PersonButton key={getPronounKey(person)} person={person} />
         ))}
       </div>

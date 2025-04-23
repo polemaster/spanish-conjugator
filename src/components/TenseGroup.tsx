@@ -7,7 +7,7 @@ export default function TenseGroup({ mood }: { mood: Mood }) {
 
   return (
     <div className="mb-6">
-      <h2 className="text-lg font-semibold capitalize mb-2">{mood}</h2>
+      <h2 className="text-lg font-semibold mb-2">{mood}</h2>
       <div className="rounded-lg overflow-hidden border border-gray-300">
         <table className="w-full text-left">
           <thead className="bg-gray-200">

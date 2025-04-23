@@ -6,10 +6,10 @@ import { Settings } from "../contexts/SettingsContext";
 */
 const defaultSettings: Settings = {
   selectedTenses: {
-    indicative: ["Present", "Preterite", "Imperfect"],
-    subjunctive: [],
-    imperative: [],
-    other: [],
+    Indicative: ["Present", "Preterite", "Imperfect"],
+    Subjunctive: [],
+    Imperative: [],
+    Other: [],
   },
   selectedPersons: [
     { number: "singular", person: ["first", "second", "third"] },

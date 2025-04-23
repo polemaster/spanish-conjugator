@@ -4,10 +4,9 @@ import { GroupedPerson, Person } from "../models/Person";
 export default function getRandomPerson(
   selectedPersons: GroupedPerson[],
   mood: Mood,
-  tense: string,
 ) {
-  // Remove "singular" "first" from imperative mood
-  if (mood === "imperative") {
+  // Remove "singular first" from imperative mood
+  if (mood === "Imperative") {
     selectedPersons = selectedPersons.map((entry) => {
       if (entry.number === "singular") {
         return {

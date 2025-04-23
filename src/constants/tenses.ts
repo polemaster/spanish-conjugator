@@ -2,7 +2,7 @@ import { Mood } from "../models/Mood";
 import Tense from "../models/Tense";
 
 export const tenseData: Record<Mood, Tense[]> = {
-  indicative: [
+  Indicative: [
     { spanish: "Presente", english: "Present" },
     { spanish: "Futuro", english: "Future" },
     { spanish: "Imperfecto", english: "Imperfect" },
@@ -14,7 +14,7 @@ export const tenseData: Record<Mood, Tense[]> = {
     { spanish: "Pretérito anterior", english: "Preterite (Archaic)" },
     { spanish: "Condicional perfecto", english: "Conditional Perfect" },
   ],
-  subjunctive: [
+  Subjunctive: [
     { spanish: "Presente", english: "Present" },
     { spanish: "Imperfecto", english: "Imperfect" },
     { spanish: "Futuro", english: "Future" },
@@ -22,12 +22,19 @@ export const tenseData: Record<Mood, Tense[]> = {
     { spanish: "Futuro perfecto", english: "Future Perfect" },
     { spanish: "Pluscuamperfecto", english: "Past Perfect" },
   ],
-  imperative: [
+  Imperative: [
     { spanish: "Afirmativo", english: "Affirmative" },
     { spanish: "Negativo", english: "Negative" },
   ],
-  other: [
+  Other: [
     { spanish: "Gerundio", english: "Gerund" },
     { spanish: "Participio Pasado", english: "Past Participle" },
   ],
+};
+
+// Function for returning full tense (both Spanish and English) based on English tense and mood.
+// Useful for converting tenses from settings format to Tense object
+// This code assumes that the English tense is given correctly and can be found in allTenses.
+export const getFullTense = (mood: Mood, englishTense: string): Tense => {
+  return tenseData[mood].find((tense) => tense.english === englishTense)!;
 };

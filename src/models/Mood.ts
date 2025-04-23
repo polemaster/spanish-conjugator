@@ -1,11 +1,11 @@
 /*
-When adding new moods, the parsing (/src/utils/parseTense.ts) should be adjusted too.
+When adding new moods, the parsing (/src/utils/convertTense.ts) should be adjusted too.
 */
-export type Mood = "indicative" | "subjunctive" | "imperative" | "other";
+export type Mood = "Indicative" | "Subjunctive" | "Imperative" | "Other";
 
 export const allMoods: Mood[] = [
-  "indicative",
-  "subjunctive",
-  "imperative",
-  "other",
+  "Indicative",
+  "Subjunctive",
+  "Imperative",
+  "Other",
 ];

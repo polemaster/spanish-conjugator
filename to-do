@@ -1,17 +1,23 @@
+Fixing code/bugs/features:
+9. Remove scrolling from home page
+11. get random element from an array  - create a function (and remove getRandomVerb)
+12. verbs array to remove?
+14. What to do with reflexive verbs - most frequent verbs don't have them
+19. Do I need to call useEffect in useRnadomConjugation?
+
+
+Adding new features/improvements:
 4. add other pages:
   - theory
   - verb conjugations search
-5. person selector - refactor
-6. useRandomConjugation.ts  - refactor, settings has any type
 7. use context for verbs - faster loading when moving between pages; change max value of top n popular verbs in settings
 8. Split settings into multiple re-usable components (SettingContainer.tsx) and use .map() to iterate them:
   - Select moods and tenses
   - Select Persons
   - Select how many most used verbs you want to learn
-9. Remove scrolling from home page
 10. add score
-11. get random element from an array  - create a function (and remove getRandomVerb)
-12. verbs array to remove
 13. Make settings and home pages buttons bigger
-14. What to do with reflexive verbs - most frequent verbs don't have them
 15. Make left side of switch more highlighted
+16. Start tense and mood from capital letter
+17. Persons settings look ugly
+18. Write more most popular verbs manually

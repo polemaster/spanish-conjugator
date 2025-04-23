@@ -11,7 +11,7 @@ export interface Settings {
 
 const SettingsContext = createContext<{
   settings: Settings;
-  toggleTense: (mood: Mood, tenseKey: string) => void;
+  toggleTense: (mood: Mood, englishTense: string) => void;
   togglePerson: (person: Person) => void;
   isPersonSelected: (person: Person) => boolean;
   setTopNVerbs: (value: number) => void;
@@ -43,11 +43,11 @@ export const SettingsProvider = ({
   Available moods: /src/models/Mood.ts
   Available tenses: /src/constants/tenses.ts (English ones)
    */
-  const toggleTense = (mood: Mood, tense: string) => {
+  const toggleTense = (mood: Mood, englishTense: string) => {
     const currentTenses = settings.selectedTenses[mood] || [];
-    const updatedTenses = currentTenses.includes(tense)
-      ? currentTenses.filter((t) => t !== tense)
-      : [...currentTenses, tense];
+    const updatedTenses = currentTenses.includes(englishTense)
+      ? currentTenses.filter((t) => t !== englishTense)
+      : [...currentTenses, englishTense];
 
     setSettings((prev) => ({
       ...prev,
