@@ -1,5 +1,5 @@
 import TenseGroup from "../components/TenseGroup";
-import { allMoods } from "../models/Mood";
+import { allMoods } from "../models";
 import PersonSelector from "../components/PersonSelector";
 import PopularVerbsSelector from "../components/PopularVerbsSelector";
 

@@ -1,14 +1,11 @@
 import { useEffect, useState } from "react";
-import { useSettingsContext } from "../contexts/SettingsContext";
-import { Person } from "../models/Person";
-import { getRandomTense } from "../utils/getRandomTense";
-import getRandomPerson from "../utils/getRandomPerson";
-import { Mood } from "../models/Mood";
-import Tense from "../models/Tense";
-import { getFullTense } from "../constants/tenses";
+import { useSettingsContext } from "../contexts";
+import { getRandomTense, getRandomPerson } from "../utils";
+import { Mood, Tense, Person } from "../models";
+import { getFullTense } from "../constants";
 
 // Used in ConjugationForm to set a new random conjugation after guessing the verb correctly
-function useRandomConjugation() {
+export function useRandomConjugation() {
   const { settings } = useSettingsContext();
 
   // The default values (indicative, present, ...) are only relevant if localStorage contains incorrect data
@@ -51,5 +48,3 @@ function useRandomConjugation() {
     setRandomConjugation,
   };
 }
-
-export default useRandomConjugation;

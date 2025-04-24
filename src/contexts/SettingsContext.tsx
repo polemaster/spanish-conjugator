@@ -1,7 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { GroupedPerson, Person } from "../models/Person";
-import defaultSettings from "../constants/defaultSettings";
-import { Mood } from "../models/Mood";
+import { GroupedPerson, Person, Mood } from "../models";
+import { defaultSettings } from "../constants";
 
 export interface Settings {
   selectedTenses: Record<Mood, string[]>;

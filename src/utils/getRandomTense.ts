@@ -1,4 +1,4 @@
-import { Mood } from "../models/Mood";
+import { Mood } from "../models";
 
 /**
   Returns random mood and tense (in the same format as in /src/constants/tenses.ts)

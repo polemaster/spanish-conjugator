@@ -1,13 +1,11 @@
 import { useEffect, useState } from "react";
-import loadVerbs from "../services/data/loadVerbs";
-import Verb from "../models/Verb";
-import getRandomVerb from "../utils/getRandomVerb";
-import loadTopVerbs from "../services/data/loadTopVerbs";
-import getTopNVerbs from "../utils/getTopNVerbs";
-import { useSettingsContext } from "../contexts/SettingsContext";
+import { Verb } from "../models";
+import { loadTopVerbs, loadVerbs } from "../services";
+import { useSettingsContext } from "../contexts";
+import { getRandomVerb, getTopNVerbs } from "../utils";
 
-function useLoadVerbs(verbsPath: string, topVerbsPath: string) {
-  const [verbs, setVerbs] = useState<Record<string, Verb>>({});
+export function useLoadVerbs(verbsPath: string, topVerbsPath: string) {
+  const [allVerbs, setAllVerbs] = useState<Record<string, Verb>>({});
   const [topVerbs, setTopVerbs] = useState<Record<string, Verb>>({});
   const [verbToConjugate, setVerbToConjugate] = useState<Verb | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -22,7 +20,7 @@ function useLoadVerbs(verbsPath: string, topVerbsPath: string) {
           loadTopVerbs(topVerbsPath),
         ]);
 
-        setVerbs(loadedVerbs);
+        setAllVerbs(loadedVerbs);
 
         const sortedTopVerbs = getTopNVerbs(
           loadedVerbs,
@@ -45,13 +43,13 @@ function useLoadVerbs(verbsPath: string, topVerbsPath: string) {
 
   useEffect(() => {
     const sortedTopVerbs = getTopNVerbs(
-      verbs,
+      allVerbs,
       Object.keys(topVerbs),
       settings.numberOfTopVerbs,
     );
     setTopVerbs(sortedTopVerbs);
     setVerbToConjugate(getRandomVerb(sortedTopVerbs));
-  }, [settings.numberOfTopVerbs]);
+  }, [settings.numberOfTopVerbs, allVerbs]);
 
   return {
     topVerbs,
@@ -61,5 +59,3 @@ function useLoadVerbs(verbsPath: string, topVerbsPath: string) {
     error,
   };
 }
-
-export default useLoadVerbs;

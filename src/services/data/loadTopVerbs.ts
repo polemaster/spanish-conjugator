@@ -1,4 +1,4 @@
-const loadTopVerbs = async (csvPath: string): Promise<string[]> => {
+export const loadTopVerbs = async (csvPath: string): Promise<string[]> => {
   const response = await fetch(csvPath);
   const text = await response.text();
 
@@ -9,5 +9,3 @@ const loadTopVerbs = async (csvPath: string): Promise<string[]> => {
 
   return verbs;
 };
-
-export default loadTopVerbs;

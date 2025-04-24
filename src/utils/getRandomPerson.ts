@@ -1,10 +1,6 @@
-import { Mood } from "../models/Mood";
-import { GroupedPerson, Person } from "../models/Person";
+import { GroupedPerson, Person, Mood } from "../models";
 
-export default function getRandomPerson(
-  selectedPersons: GroupedPerson[],
-  mood: Mood,
-) {
+export function getRandomPerson(selectedPersons: GroupedPerson[], mood: Mood) {
   // Remove "singular first" from imperative mood
   if (mood === "Imperative") {
     selectedPersons = selectedPersons.map((entry) => {

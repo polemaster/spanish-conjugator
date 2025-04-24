@@ -1,4 +1,4 @@
-import { Person } from "../models/Person";
+import { Person } from "../models";
 
 // Maps a Person object to a human-readable person (yo, tú...)
 export const pronounMap: Record<string, string> = {

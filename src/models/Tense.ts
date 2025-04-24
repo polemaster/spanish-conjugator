@@ -1,4 +1,4 @@
-export default interface Tense {
+export interface Tense {
   spanish: string;
   english: string;
 }

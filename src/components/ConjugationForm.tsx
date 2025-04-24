@@ -1,13 +1,20 @@
+// External libraries
 import { FormEvent, useState } from "react";
-import useLoadVerbs from "../hooks/useLoadVerbs";
-import getRandomVerb from "../utils/getRandomVerb";
+
+// Components
 import FeedbackMessage from "./FeedbackMessage";
 import VerbInputForm from "./VerbInputForm";
-import useRandomConjugation from "../hooks/useRandomConjugation";
-import { useFeedbackMessage } from "../hooks/useFeedbackMessageEffect";
 import VerbPrompt from "./VerbPrompt";
-import getConjugation from "../utils/getConjugation";
-import convertTense from "../utils/convertTense";
+
+// Hooks
+import {
+  useFeedbackMessage,
+  useRandomConjugation,
+  useLoadVerbs,
+} from "../hooks";
+
+// Utils
+import { convertTense, getConjugation, getRandomVerb } from "../utils";
 
 export default function ConjugationForm() {
   const [spanishVerb, setSpanishVerb] = useState("");

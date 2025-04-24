@@ -1,0 +1,13 @@
+{
+  "directory": [
+    "src/constants",
+    "src/hooks",
+    "src/models",
+    "src/utils",
+    "src/services",
+    "src/contexts"
+  ],
+  "delete": true,
+  "structure": "flat",
+  "barrelName": "index"
+}

@@ -1,4 +1,4 @@
-type VerbRow = {
+export type VerbRow = {
   infinitive: string;
   infinitive_english: string;
   mood: string;
@@ -15,5 +15,3 @@ type VerbRow = {
   gerund: string;
   pastparticiple: string;
 };
-
-export default VerbRow;

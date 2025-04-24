@@ -1,10 +1,10 @@
-import VerbRow from "./VerbRow";
+import { VerbRow } from ".";
 
 /*
 Available moods: "indicative", "subjunctive", "imperative affirmative", "imperative negative"
 Available tenses: "present", "present perfect", etc.
  */
-class Verb {
+export class Verb {
   infinitive: string;
   english: string;
   gerund: string;
@@ -57,5 +57,3 @@ class Verb {
     if (row.form_3p) c.plural!.third = row.form_3p;
   }
 }
-
-export default Verb;

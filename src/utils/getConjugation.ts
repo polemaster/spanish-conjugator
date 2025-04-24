@@ -1,7 +1,6 @@
-import { Person } from "../models/Person";
-import Verb from "../models/Verb";
+import { Person, Verb } from "../models";
 
-export default function getConjugation(
+export function getConjugation(
   verb: Verb,
   mood: string,
   tense: string,

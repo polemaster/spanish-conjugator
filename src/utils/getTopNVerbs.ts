@@ -1,6 +1,6 @@
-import Verb from "../models/Verb";
+import { Verb } from "../models";
 
-function getTopNVerbs(
+export function getTopNVerbs(
   verbs: Record<string, Verb>,
   topVerbs: string[],
   n: number,
@@ -40,5 +40,3 @@ function getTopNVerbs(
 
   return result;
 }
-
-export default getTopNVerbs;

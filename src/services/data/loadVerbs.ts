@@ -1,11 +1,12 @@
-import Verb from "../../models/Verb";
-import VerbRow from "../../models/VerbRow";
+import { Verb, VerbRow } from "../../models";
 import Papa from "papaparse";
 
 const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 // Function to load the CSV and parse it
-const loadVerbs = async (csvPath: string): Promise<Record<string, Verb>> => {
+export const loadVerbs = async (
+  csvPath: string,
+): Promise<Record<string, Verb>> => {
   const response = await fetch(csvPath);
   const csvText = await response.text();
 
@@ -43,5 +44,3 @@ const loadVerbs = async (csvPath: string): Promise<Record<string, Verb>> => {
     });
   });
 };
-
-export default loadVerbs;

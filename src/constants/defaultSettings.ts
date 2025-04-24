@@ -1,10 +1,10 @@
-import { Settings } from "../contexts/SettingsContext";
+import { Settings } from "../contexts";
 
 /*
   Available moods: /src/models/Mood.ts
   Available tenses: /src/constants/tenses.ts (English ones)
 */
-const defaultSettings: Settings = {
+export const defaultSettings: Settings = {
   selectedTenses: {
     Indicative: ["Present", "Preterite", "Imperfect"],
     Subjunctive: [],
@@ -17,5 +17,3 @@ const defaultSettings: Settings = {
   ],
   numberOfTopVerbs: 50,
 };
-
-export default defaultSettings;
