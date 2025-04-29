@@ -2,16 +2,22 @@ import { useEffect, useState } from "react";
 import { Verb } from "../models";
 import { loadTopVerbs, loadVerbs } from "../services";
 import { useSettingsContext } from "../contexts";
-import { getRandomVerb, getTopNVerbs } from "../utils";
+import { getTopNVerbs } from "../utils";
 
+/*
+This function is responsible for:
+- loading all data from csv files
+- setting initial verb to conjugate
+- updating topVerbs when settings.numberOfTopVerbs change
+*/
 export function useLoadVerbs(verbsPath: string, topVerbsPath: string) {
   const [allVerbs, setAllVerbs] = useState<Record<string, Verb>>({});
   const [topVerbs, setTopVerbs] = useState<Record<string, Verb>>({});
-  const [verbToConjugate, setVerbToConjugate] = useState<Verb | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const { settings } = useSettingsContext();
 
+  // Load all data on startup
   useEffect(() => {
     const loadAllData = async () => {
       try {
@@ -29,8 +35,6 @@ export function useLoadVerbs(verbsPath: string, topVerbsPath: string) {
         );
         setTopVerbs(sortedTopVerbs);
 
-        setVerbToConjugate(getRandomVerb(sortedTopVerbs));
-
         setLoading(false);
       } catch (err: any) {
         setError(err.message);
@@ -41,6 +45,7 @@ export function useLoadVerbs(verbsPath: string, topVerbsPath: string) {
     loadAllData();
   }, [verbsPath, topVerbsPath]);
 
+  // Set new top verbs if settings change
   useEffect(() => {
     const sortedTopVerbs = getTopNVerbs(
       allVerbs,
@@ -48,14 +53,11 @@ export function useLoadVerbs(verbsPath: string, topVerbsPath: string) {
       settings.numberOfTopVerbs,
     );
     setTopVerbs(sortedTopVerbs);
-    setVerbToConjugate(getRandomVerb(sortedTopVerbs));
   }, [settings.numberOfTopVerbs, allVerbs]);
 
   return {
-    topVerbs,
-    verbToConjugate,
-    setVerbToConjugate,
     loading,
     error,
+    topVerbs,
   };
 }

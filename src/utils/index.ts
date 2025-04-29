@@ -3,8 +3,4 @@
  */
 
 export * from "./convertTense";
-export * from "./getConjugation";
-export * from "./getRandomPerson";
-export * from "./getRandomTense";
-export * from "./getRandomVerb";
 export * from "./getTopNVerbs";

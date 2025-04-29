@@ -1,18 +1,17 @@
-import { getPronounKey, pronounMap } from "../constants/pronouns";
-import { Mood } from "../models/Mood";
-import { Person } from "../models/Person";
-import Tense from "../models/Tense";
-import Verb from "../models/Verb";
+import { getPronounKey, pronounMap } from "../data";
+import { VerbConjugator } from "../services";
 
 interface Props {
-  mood: Mood;
-  tense: Tense;
-  person: Person;
-  verbToConjugate: Verb;
+  verbConjugator: VerbConjugator;
 }
 
-// Mood & tense are in the same format as in /src/constants/tenses.ts
-function VerbPrompt({ mood, tense, person, verbToConjugate }: Props) {
+function VerbPrompt({ verbConjugator }: Props) {
+  if (!verbConjugator.getConjugatedVerb())
+    return <em>verbToConjugate is null in VerbPrompt</em>;
+
+  const mood = verbConjugator.getDisplay().mood;
+  const tense = verbConjugator.getDisplay().tense;
+
   let newMood: string = mood;
   let newTense = tense.english;
 
@@ -24,8 +23,10 @@ function VerbPrompt({ mood, tense, person, verbToConjugate }: Props) {
         {newMood} {newTense}
       </div>
       <div className="text-center text-lg">
-        {mood !== "Other" ? pronounMap[getPronounKey(person)] + " " : ""}
-        <strong>{verbToConjugate.infinitive}</strong>
+        {mood !== "Other"
+          ? pronounMap[getPronounKey(verbConjugator.getPerson())] + " "
+          : ""}
+        <strong>{verbConjugator.getCurrentVerb()?.infinitive}</strong>
       </div>
     </>
   );

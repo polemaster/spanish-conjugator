@@ -2,7 +2,7 @@ import { Settings } from "../contexts";
 
 /*
   Available moods: /src/models/Mood.ts
-  Available tenses: /src/constants/tenses.ts (English ones)
+  Available tenses: /src/data/tenses.ts (English ones)
 */
 export const defaultSettings: Settings = {
   selectedTenses: {

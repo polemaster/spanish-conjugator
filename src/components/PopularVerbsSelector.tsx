@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useSettingsContext } from "../contexts/SettingsContext";
+import { useSettingsContext } from "../contexts";
 import PopularVerbsSwitch from "./PopularVerbsSwitch";
 
 function PopularVerbsSelector() {

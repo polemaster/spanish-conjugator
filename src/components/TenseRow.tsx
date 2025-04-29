@@ -1,6 +1,5 @@
-import { useSettingsContext } from "../contexts/SettingsContext";
-import { Mood } from "../models/Mood";
-import Tense from "../models/Tense";
+import { useSettingsContext } from "../contexts";
+import { Mood, Tense } from "../models";
 
 type Props = {
   tense: Tense;

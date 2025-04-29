@@ -1,5 +1,5 @@
-import { allPersons, getPronounKey } from "../constants/pronouns";
-import PersonButton from "../components/PersonButton";
+import { allPersons, getPronounKey } from "../data";
+import PersonButton from "./PersonButton";
 
 const PersonSelector = () => {
   return (

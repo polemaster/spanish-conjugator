@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { GroupedPerson, Person, Mood } from "../models";
-import { defaultSettings } from "../constants";
+import { defaultSettings } from "../data";
 
 export interface Settings {
   selectedTenses: Record<Mood, string[]>;
@@ -40,7 +40,7 @@ export const SettingsProvider = ({
 
   /*
   Available moods: /src/models/Mood.ts
-  Available tenses: /src/constants/tenses.ts (English ones)
+  Available tenses: /src/data/tenses.ts (English ones)
    */
   const toggleTense = (mood: Mood, englishTense: string) => {
     const currentTenses = settings.selectedTenses[mood] || [];

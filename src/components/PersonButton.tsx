@@ -1,6 +1,6 @@
-import { Person } from "../models/Person";
-import { useSettingsContext } from "../contexts/SettingsContext";
-import { getPronounKey, pronounMap } from "../constants/pronouns";
+import { Person } from "../models";
+import { useSettingsContext } from "../contexts";
+import { getPronounKey, pronounMap } from "../data";
 
 interface Props {
   person: Person;

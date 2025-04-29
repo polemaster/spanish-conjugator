@@ -1,5 +1,5 @@
-import { Mood } from "../models/Mood";
-import { tenseData } from "../constants/tenses";
+import { Mood } from "../models";
+import { tenseData } from "../data";
 import TenseRow from "./TenseRow";
 
 export default function TenseGroup({ mood }: { mood: Mood }) {

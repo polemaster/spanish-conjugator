@@ -1,5 +1,4 @@
-import { Mood } from "../models/Mood";
-import { Tense } from "../models/Tense";
+import { Mood, Tense } from "../models";
 
 /*
 Convert mood and tense from display format to verbs format

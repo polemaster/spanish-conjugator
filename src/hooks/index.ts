@@ -4,4 +4,4 @@
 
 export * from "./useFeedbackMessageEffect";
 export * from "./useLoadVerbs";
-export * from "./useRandomConjugation";
+export * from "./useVerbConjugator";

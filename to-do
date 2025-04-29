@@ -1,9 +1,7 @@
 Fixing code/bugs/features:
 9. Remove scrolling from home page
-11. get random element from an array  - create a function (and remove getRandomVerb)
-12. verbs array to remove?
 14. What to do with reflexive verbs - most frequent verbs don't have them
-19. Do I need to call useEffect in useRnadomConjugation?
+20. Re-write functions in RandomSelector so that they operate on converted tenses and moods
 
 
 Adding new features/improvements:
