@@ -1,10 +1,10 @@
 import React from "react";
 
-type Props = {
+interface Props {
   messageType: string;
   correctVerb?: string;
   isVisible: boolean;
-};
+}
 
 export default function FeedbackMessage({
   messageType,

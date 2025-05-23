@@ -1,12 +1,15 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { GroupedPerson, Person, Mood } from "../models";
 import { defaultSettings } from "../data";
+import { useLocalStorage } from "../hooks";
 
 export interface Settings {
   selectedTenses: Record<Mood, string[]>;
   selectedPersons: GroupedPerson[];
   numberOfTopVerbs: number;
 }
+
+const CURRENT_VERSION = "1.0";
 
 const SettingsContext = createContext<{
   settings: Settings;
@@ -29,14 +32,11 @@ export const SettingsProvider = ({
 }: {
   children: React.ReactNode;
 }) => {
-  const [settings, setSettings] = useState<Settings>(() => {
-    const stored = localStorage.getItem("settings");
-    return stored ? JSON.parse(stored) : defaultSettings;
-  });
-
-  useEffect(() => {
-    localStorage.setItem("settings", JSON.stringify(settings));
-  }, [settings]);
+  const [settings, setSettings] = useLocalStorage<Settings>(
+    "settings",
+    defaultSettings,
+    CURRENT_VERSION,
+  );
 
   /*
   Available moods: /src/models/Mood.ts

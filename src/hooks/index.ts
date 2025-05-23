@@ -4,4 +4,5 @@
 
 export * from "./useFeedbackMessageEffect";
 export * from "./useLoadVerbs";
+export * from "./useLocalStorage";
 export * from "./useVerbConjugator";
