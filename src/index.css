@@ -4,4 +4,7 @@
   .settings-box {
     @apply p-4 mb-4 rounded-lg shadow-lg;
   }
+  .nav-item {
+    @apply flex items-center px-7 text-white text-lg hover:bg-gray-500 transition duration-200 cursor-pointer;
+  }
 }

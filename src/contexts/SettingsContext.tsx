@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext } from "react";
 import { GroupedPerson, Person, Mood } from "../models";
 import { defaultSettings } from "../data";
 import { useLocalStorage } from "../hooks";

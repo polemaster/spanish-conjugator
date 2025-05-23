@@ -34,7 +34,7 @@ export default function VerbInputForm({
       />
       <button
         type="submit"
-        className="mt-4 w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
+        className="mt-4 w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded transition duration-100 cursor-pointer"
       >
         Check
       </button>

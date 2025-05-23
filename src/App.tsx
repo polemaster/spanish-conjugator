@@ -9,10 +9,9 @@ function App() {
     <SettingsProvider>
       <div>
         <NavBar />
-        <main className="main-content p-4">
+        <main>
           <Routes>
             <Route path="/" element={<HomePage />}></Route>
-            <Route path="/home" element={<HomePage />}></Route>
             <Route path="/settings" element={<SettingsPage />}></Route>
           </Routes>
         </main>

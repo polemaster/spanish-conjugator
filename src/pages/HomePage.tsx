@@ -1,12 +1,53 @@
-import ConjugationForm from "../components/ConjugationForm";
+import { FormEvent, useState } from "react";
+import FeedbackMessage from "../components/FeedbackMessage";
+import VerbInputForm from "../components/VerbInputForm";
+import VerbPrompt from "../components/VerbPrompt";
+import { useFeedbackMessage, useLoadVerbs, useVerbConjugator } from "../hooks";
 
-function HomePage() {
+export default function HomePage() {
+  const [userInputVerb, setUserInputVerb] = useState("");
+  const { loading, error, topVerbs } = useLoadVerbs(
+    "/data/conjugated_verbs.csv",
+    "/data/verbs_by_frequency2.csv",
+  );
+  const { answer, setAnswer, correctVerb, setCorrectVerb, showFeedback } =
+    useFeedbackMessage();
+
+  const verbConjugator = useVerbConjugator(topVerbs);
+
+  if (error) return <div>Error loading verbs: {error}</div>;
+  if (!verbConjugator || loading) return <div>Loading verbs...</div>;
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const expectedVerb = verbConjugator.getConjugatedVerb();
+    if (!expectedVerb) return;
+
+    if (userInputVerb === expectedVerb) {
+      setAnswer("correct");
+      verbConjugator.setNewRandomConjugation();
+      setUserInputVerb("");
+    } else {
+      setAnswer("wrong");
+      setCorrectVerb(expectedVerb);
+    }
+  };
+
   return (
-    // <div className="w-full min-h-screen flex justify-center items-center">
-    <div className="w-full min-h-screen px-4 pt-8">
-      <ConjugationForm />
+    <div className="max-w-md mx-auto p-4 pt-16 relative">
+      <FeedbackMessage
+        messageType={answer}
+        correctVerb={correctVerb}
+        isVisible={showFeedback}
+      />
+      <VerbInputForm
+        value={userInputVerb}
+        onChange={setUserInputVerb}
+        onSubmit={handleSubmit}
+      >
+        <VerbPrompt verbConjugator={verbConjugator} />
+      </VerbInputForm>
     </div>
   );
 }
-
-export default HomePage;
