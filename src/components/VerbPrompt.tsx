@@ -19,10 +19,10 @@ function VerbPrompt({ verbConjugator }: Props) {
   if (mood === "Other" || mood === "Indicative") newMood = "";
   return (
     <>
-      <div className="text-center text-medium mb-4">
+      <div className="text-medium mb-4">
         {newMood} {newTense}
       </div>
-      <div className="text-center text-lg">
+      <div className="text-lg">
         {mood !== "Other"
           ? pronounMap[getPronounKey(verbConjugator.getPerson())] + " "
           : ""}

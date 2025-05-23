@@ -9,12 +9,10 @@ function App() {
     <SettingsProvider>
       <div>
         <NavBar />
-        <main>
-          <Routes>
-            <Route path="/" element={<HomePage />}></Route>
-            <Route path="/settings" element={<SettingsPage />}></Route>
-          </Routes>
-        </main>
+        <Routes>
+          <Route path="/" element={<HomePage />}></Route>
+          <Route path="/settings" element={<SettingsPage />}></Route>
+        </Routes>
       </div>
     </SettingsProvider>
   );

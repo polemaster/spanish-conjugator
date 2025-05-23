@@ -20,10 +20,7 @@ export default function VerbInputForm({
   }, []);
 
   return (
-    <form
-      onSubmit={onSubmit}
-      className="max-w-md mx-auto mt-10 p-4 bg-white shadow rounded"
-    >
+    <form onSubmit={onSubmit} className="p-4 shadow rounded">
       <div className="mb-4">{children}</div>
       <input
         type="text"

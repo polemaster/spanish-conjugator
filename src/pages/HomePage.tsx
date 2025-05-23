@@ -35,19 +35,21 @@ export default function HomePage() {
   };
 
   return (
-    <div className="max-w-md mx-auto p-4 pt-16 relative">
-      <FeedbackMessage
-        messageType={answer}
-        correctVerb={correctVerb}
-        isVisible={showFeedback}
-      />
-      <VerbInputForm
-        value={userInputVerb}
-        onChange={setUserInputVerb}
-        onSubmit={handleSubmit}
-      >
-        <VerbPrompt verbConjugator={verbConjugator} />
-      </VerbInputForm>
-    </div>
+    <main>
+      <div className="mx-auto w-90">
+        <FeedbackMessage
+          messageType={answer}
+          correctVerb={correctVerb}
+          isVisible={showFeedback}
+        />
+        <VerbInputForm
+          value={userInputVerb}
+          onChange={setUserInputVerb}
+          onSubmit={handleSubmit}
+        >
+          <VerbPrompt verbConjugator={verbConjugator} />
+        </VerbInputForm>
+      </div>
+    </main>
   );
 }

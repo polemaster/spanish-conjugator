@@ -1,4 +1,8 @@
 import { useState, useEffect } from "react";
+import {
+  FEEDBACK_MSG_DISPLAY_TIME,
+  FEEDBACK_MSG_TRANSITION_TIME,
+} from "../utils";
 
 export function useFeedbackMessage() {
   const [answer, setAnswer] = useState("");
@@ -10,12 +14,15 @@ export function useFeedbackMessage() {
       setShowFeedback(true);
       const timer = setTimeout(() => {
         setShowFeedback(false);
-      }, 2000); // Show feedback for 2 seconds
+      }, FEEDBACK_MSG_DISPLAY_TIME + FEEDBACK_MSG_TRANSITION_TIME); // Show feedback for FEEDBACK_MSG_DISPLAY_TIME milliseconds
 
-      const hideTimer = setTimeout(() => {
-        setAnswer("");
-        setCorrectVerb(undefined);
-      }, 3000); // Remove feedback after it has faded out
+      const hideTimer = setTimeout(
+        () => {
+          setAnswer("");
+          setCorrectVerb(undefined);
+        },
+        FEEDBACK_MSG_DISPLAY_TIME + 2 * FEEDBACK_MSG_TRANSITION_TIME,
+      ); // Remove feedback after it has faded out
 
       return () => {
         clearTimeout(timer);
