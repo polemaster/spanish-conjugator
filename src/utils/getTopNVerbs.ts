@@ -22,13 +22,15 @@ export function getTopNVerbs(
   );
 
   // Create map of frequency rank
-  const indexMap = new Map<string, number>();
-  allTopVerbs.forEach((verb, index) => indexMap.set(verb, index));
+  const verbRanks = new Map<string, number>();
+  allTopVerbs.forEach((verb, index) => verbRanks.set(verb, index));
 
   // Sort by rank
   filteredInfinitives.sort((a, b) => {
-    const indexA = indexMap.get(a) ?? Infinity;
-    const indexB = indexMap.get(b) ?? Infinity;
+    // If a or b is not found in verbRanks (even though it should always be
+    // found), it is set to Infinity to be the last verb
+    const indexA = verbRanks.get(a) ?? Infinity;
+    const indexB = verbRanks.get(b) ?? Infinity;
     return indexA - indexB;
   });
 

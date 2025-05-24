@@ -3,6 +3,7 @@ import FeedbackMessage from "../components/FeedbackMessage";
 import VerbInputForm from "../components/VerbInputForm";
 import VerbPrompt from "../components/VerbPrompt";
 import { useFeedbackMessage, useLoadVerbs, useVerbConjugator } from "../hooks";
+import ScoreDisplay from "../components/ScoreDisplay";
 
 export default function HomePage() {
   const [userInputVerb, setUserInputVerb] = useState("");
@@ -12,6 +13,8 @@ export default function HomePage() {
   );
   const { answer, setAnswer, correctVerb, setCorrectVerb, showFeedback } =
     useFeedbackMessage();
+  const [correctVerbsScore, setCorrectVerbsScore] = useState(0);
+  const [allVerbsScore, setAllVerbsScore] = useState(0);
 
   const verbConjugator = useVerbConjugator(topVerbs);
 
@@ -28,10 +31,13 @@ export default function HomePage() {
       setAnswer("correct");
       verbConjugator.setNewRandomConjugation();
       setUserInputVerb("");
+      setCorrectVerbsScore(correctVerbsScore + 1);
     } else {
       setAnswer("wrong");
       setCorrectVerb(expectedVerb);
     }
+
+    setAllVerbsScore(allVerbsScore + 1);
   };
 
   return (
@@ -41,6 +47,10 @@ export default function HomePage() {
           messageType={answer}
           correctVerb={correctVerb}
           isVisible={showFeedback}
+        />
+        <ScoreDisplay
+          correctVerbsScore={correctVerbsScore}
+          allVerbsScore={allVerbsScore}
         />
         <VerbInputForm
           value={userInputVerb}
