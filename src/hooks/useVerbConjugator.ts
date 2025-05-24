@@ -7,7 +7,7 @@ export function useVerbConjugator(topVerbs: Record<string, Verb>) {
   const { settings } = useSettingsContext();
   const [conjugator, setConjugator] = useState<VerbConjugator | null>(null);
 
-  // Whenever user changes settings a new VerbConjugator should be created
+  // Whenever user changes settings, a new VerbConjugator should be created
   useEffect(() => {
     if (Object.keys(topVerbs).length === 0) return;
 

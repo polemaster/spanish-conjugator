@@ -9,14 +9,16 @@ function VerbPrompt({ verbConjugator }: Props) {
   if (!verbConjugator.getConjugatedVerb())
     return <em>verbToConjugate is null in VerbPrompt</em>;
 
+  // "mood" and "tense" are in Mood and Tense format here
   const mood = verbConjugator.getDisplay().mood;
   const tense = verbConjugator.getDisplay().tense;
 
+  // We need to change the display of the default Mood and Tense to be more user-friendly
   let newMood: string = mood;
-  let newTense = tense.english;
+  const newTense = tense.english;
 
-  if (mood === "Imperative" && tense.english === "Present") newTense = "";
   if (mood === "Other" || mood === "Indicative") newMood = "";
+
   return (
     <>
       <div className="text-medium mb-4">

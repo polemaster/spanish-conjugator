@@ -17,7 +17,7 @@ export class RandomSelector {
   Example 2: { "Imperative", "Affirmative" }
   Example 3: { "Other", "Gerund" }
   */
-  public getRandomTense(): { mood: Mood; tense: string } | null {
+  public getRandomMoodTense(): { mood: Mood; tense: string } | null {
     // Maps object of type Record<Mood, string[]> to array of type { mood: Mood; tense: string }[]
     const allTenses = Object.entries(this.selectedTenses).flatMap(
       ([mood, tenses]) =>
@@ -29,6 +29,8 @@ export class RandomSelector {
     return this.getRandomElement(allTenses);
   }
 
+  // Returns a random valid person
+  // Mood is needed because certain moods (e.g. imperative) don't have all persons conjugations
   public getRandomPerson(mood: Mood) {
     // Remove "singular first" from imperative mood
     if (mood === "Imperative") {

@@ -53,7 +53,7 @@ export class VerbConjugator {
   }
 
   public setNewRandomConjugation(): void {
-    const moodAndTense = this.randomizer.getRandomTense();
+    const moodAndTense = this.randomizer.getRandomMoodTense();
     if (!moodAndTense) return;
 
     const { mood, tense } = moodAndTense;
