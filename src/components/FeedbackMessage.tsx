@@ -21,10 +21,10 @@ export default function FeedbackMessage({
   let message: React.ReactNode = "";
 
   if (messageType === "correct") {
-    messageClasses = "bg-green-300 text-green-800";
+    messageClasses = "bg-emerald-500 text-green-800";
     message = "Correct";
   } else if (messageType === "wrong") {
-    messageClasses = "bg-red-300 text-red-800";
+    messageClasses = "bg-red-400 text-red-800";
     message = (
       <span>
         Wrong, the correct verb is <strong>{correctVerb}</strong>

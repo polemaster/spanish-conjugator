@@ -8,9 +8,9 @@ export default function TenseGroup({ mood }: { mood: Mood }) {
   return (
     <div className="mb-6">
       <h2 className="text-lg font-semibold mb-2">{mood}</h2>
-      <div className="rounded-lg overflow-hidden border border-gray-300">
+      <div className="rounded-lg overflow-hidden border border-neutral-400">
         <table className="w-full text-left">
-          <thead className="bg-gray-200">
+          <thead className="bg-zinc-500">
             <tr>
               <th className="p-2 w-10"></th>
               <th className="p-2">Spanish</th>

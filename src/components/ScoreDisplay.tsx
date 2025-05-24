@@ -14,10 +14,12 @@ export default function ScoreDisplay({
       : "0";
 
   const color =
-    parseFloat(percentageScore) > 70 ? "text-green-500" : "text-red-500";
+    parseFloat(percentageScore) > 70 ? "text-green-400" : "text-red-500";
 
   return (
-    <div className={`flex items-center shadow my-5 h-10 p-4 ${color}`}>
+    <div
+      className={`flex items-center shadow my-5 h-10 p-4 rounded bg-neutral-600 ${color}`}
+    >
       Score: {correctVerbsScore} / {allVerbsScore} ({percentageScore} %)
     </div>
   );

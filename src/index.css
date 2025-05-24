@@ -2,9 +2,15 @@
 
 @layer components {
   .settings-box {
-    @apply p-4 mb-4 rounded-lg shadow-lg;
+    @apply px-6 py-4 mb-4 rounded-2xl shadow-xl bg-neutral-600 text-center;
+  }
+  .person-box {
+    @apply col-span-12 md:col-span-2 flex items-center justify-center uppercase;
   }
   .nav-item {
-    @apply flex items-center px-7 text-white text-lg hover:bg-gray-500 transition duration-200 cursor-pointer;
+    @apply flex items-center px-7 text-white text-lg hover:bg-neutral-600 transition duration-200 cursor-pointer;
+  }
+  .my-input {
+    @apply px-2 py-2 text-lg bg-neutral-500 rounded focus:outline-none;
   }
 }

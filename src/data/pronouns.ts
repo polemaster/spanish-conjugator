@@ -14,10 +14,10 @@ export const pronounMap: Record<string, string> = {
 // the css grid in /src/components/PersonSelector.tsx
 export const allPersons: Person[] = [
   { number: "singular", person: "first" },
-  { number: "plural", person: "first" },
   { number: "singular", person: "second" },
-  { number: "plural", person: "second" },
   { number: "singular", person: "third" },
+  { number: "plural", person: "first" },
+  { number: "plural", person: "second" },
   { number: "plural", person: "third" },
 ];
 

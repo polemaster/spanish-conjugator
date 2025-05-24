@@ -39,17 +39,17 @@ function PopularVerbsSelector() {
   };
 
   return (
-    <div className="settings-box">
+    <div className="settings-box ">
       <h2 className="text-xl font-bold mb-2">
         Select how many most used verbs you want to learn
       </h2>
-      <div className="flex items-center gap-4">
+      <div className="flex items-center justify-center gap-4">
         <input
           value={topNInput}
           onChange={handleChange}
           onBlur={handleBlur}
           disabled={isUsingAllVerbs}
-          className="border border-gray-300 rounded p-2 w-32 disabled:bg-gray-100"
+          className="border border-neutral-400 rounded w-32 disabled:bg-neutral-400 my-input text-base"
         />
         <PopularVerbsSwitch
           checked={isUsingAllVerbs}
@@ -57,9 +57,9 @@ function PopularVerbsSelector() {
         />
         <span>Use all verbs</span>
       </div>
-      <p className="text-sm text-gray-500 mt-1">
-        Enter a number <em>n</em> from {MIN_VERBS} to {MAX_VERBS} if you want to
-        learn only the <em>n</em> most popular verbs.
+      <p className="text-sm text-neutral-300 mt-2">
+        Enter a number <em>n</em> between {MIN_VERBS} and {MAX_VERBS} if you
+        want to learn only the <em>n</em> most popular verbs.
       </p>
     </div>
   );

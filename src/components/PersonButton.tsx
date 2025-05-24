@@ -11,14 +11,26 @@ const PersonButton = ({ person }: Props) => {
   const key = getPronounKey(person);
   const selected = isPersonSelected(person);
 
+  const baseStyles =
+    "px-2 col-span-4 md:col-span-3 py-2 rounded-xl flex items-center justify-between font-semibold transition-all duration-200 shadow-sm hover:shadow-md cursor-pointer border border-neutral-400 select-none";
+  const activeStyles = "bg-neutral-500 ";
+  const inactiveStyles = "bg-neutral-600  hover:bg-neutral-400";
+
+  // Optional: Widen third person because it contains more text
+  const widthClass = person.person === "third" ? "md:col-span-4" : "";
+
   return (
     <div
       onClick={() => togglePerson(person)}
-      className={`cursor-pointer px-4 py-2 rounded border text-center transition-colors duration-200 ${
-        selected ? "bg-blue-200 border-blue-500" : "bg-white border-gray-300"
-      }`}
+      className={`${baseStyles} ${selected ? activeStyles : inactiveStyles} ${widthClass}`}
     >
-      {pronounMap[key]}
+      <input
+        type="checkbox"
+        checked={selected}
+        readOnly
+        className="form-checkbox flex-none accent-neutral-700 w-4 h-4 pointer-events-none"
+      />
+      <span className="flex-auto">{pronounMap[key]}</span>
     </div>
   );
 };

@@ -10,7 +10,7 @@ function PopularVerbsSwitch({ checked, onChange }: CustomSwitchProps) {
       aria-checked={checked}
       onClick={() => onChange(!checked)}
       className={`w-12 h-6 flex items-center rounded-full p-1 transition-all duration-200
-        ${checked ? "bg-blue-500" : "bg-gray-300"}
+        ${checked ? "bg-neutral-800" : "bg-neutral-400"}
         cursor-pointer
         hover:scale-105
         hover:shadow-lg`}

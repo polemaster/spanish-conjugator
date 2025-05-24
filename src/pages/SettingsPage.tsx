@@ -6,8 +6,8 @@ import PopularVerbsSelector from "../components/PopularVerbsSelector";
 export default function SettingsPage() {
   return (
     <main>
-      <div className="max-w-3xl mx-auto p-6">
-        <h1 className="text-2xl font-bold mb-6 text-center">Settings</h1>
+      <div className="max-w-3xl mx-auto p-6 text-white">
+        <h1 className="text-2xl font-bold my-6 text-center">Settings</h1>
         <div className="settings-box">
           <h2 className="text-xl font-bold mb-2">Select moods and tenses</h2>
           {allMoods.map((mood) => (
