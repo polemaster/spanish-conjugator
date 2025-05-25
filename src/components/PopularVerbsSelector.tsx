@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useSettingsContext } from "../contexts";
 import PopularVerbsSwitch from "./PopularVerbsSwitch";
+import SettingsBoxTitle from "./SettingsBoxTitle";
 
 function PopularVerbsSelector() {
   const { settings, setTopNVerbs } = useSettingsContext();
@@ -40,9 +41,9 @@ function PopularVerbsSelector() {
 
   return (
     <div className="settings-box ">
-      <h2 className="text-xl font-bold mb-2">
+      <SettingsBoxTitle>
         Select how many most used verbs you want to learn
-      </h2>
+      </SettingsBoxTitle>
       <div className="flex items-center justify-center gap-4">
         <input
           value={topNInput}

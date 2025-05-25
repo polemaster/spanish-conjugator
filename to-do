@@ -2,13 +2,6 @@ Adding new features/improvements:
 4. add other pages:
   - theory
   - verb conjugations search
-7. use context for verbs - faster loading when moving between pages; change max value of top n popular verbs in settings
-8. Split settings into multiple re-usable components (SettingContainer.tsx) and use .map() to iterate them:
-  - Select moods and tenses
-  - Select Persons
-  - Select how many most used verbs you want to learn
-13. Make settings and home pages buttons bigger
-16. Start tense and mood from capital letter
-17. Persons settings look ugly
+7. use context for verbs? - faster loading when moving between pages; change max value of top n popular verbs in settings
 18. Write more most popular verbs manually
 19. Add theme switch (light / dark mode)

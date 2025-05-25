@@ -1,15 +1,14 @@
 import { allPersons, getPronounKey } from "../data";
 import PersonButton from "./PersonButton";
+import SettingsBoxTitle from "./SettingsBoxTitle";
 
 const PersonSelector = () => {
   const singularPersons = allPersons.slice(0, 3);
   const pluralPersons = allPersons.slice(3, 6);
 
   return (
-    <div className="settings-box space-y-6">
-      <h2 className="text-xl font-bold text-center text-white">
-        Select Persons
-      </h2>
+    <div className="settings-box">
+      <SettingsBoxTitle>Select Persons</SettingsBoxTitle>
 
       <div className="grid grid-cols-12 gap-4 ">
         <div className="person-box">Singular</div>
