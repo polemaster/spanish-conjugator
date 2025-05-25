@@ -11,6 +11,6 @@
     @apply flex items-center px-7 text-white text-lg hover:bg-neutral-600 transition duration-200 cursor-pointer;
   }
   .my-input {
-    @apply px-2 py-2 text-lg bg-neutral-500 rounded focus:outline-none;
+    @apply px-2 py-2 text-lg bg-neutral-700 rounded focus:outline-none;
   }
 }

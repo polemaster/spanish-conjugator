@@ -16,8 +16,14 @@ const PersonButton = ({ person }: Props) => {
   const activeStyles = "bg-neutral-500 ";
   const inactiveStyles = "bg-neutral-600  hover:bg-neutral-400";
 
-  // Optional: Widen third person because it contains more text
+  // Widen third person because it contains more text
   const widthClass = person.person === "third" ? "md:col-span-4" : "";
+
+  let displayedProunoun = pronounMap[key];
+  if (person.person === "third" && person.number === "singular")
+    displayedProunoun = "él/ella/usted";
+  if (person.person === "third" && person.number === "plural")
+    displayedProunoun = "ellos/ellas/ustedes";
 
   return (
     <div
@@ -30,7 +36,7 @@ const PersonButton = ({ person }: Props) => {
         readOnly
         className="form-checkbox flex-none accent-neutral-700 w-4 h-4 pointer-events-none"
       />
-      <span className="flex-auto">{pronounMap[key]}</span>
+      <span className="flex-auto">{displayedProunoun}</span>
     </div>
   );
 };

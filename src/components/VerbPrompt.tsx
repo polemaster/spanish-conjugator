@@ -17,6 +17,8 @@ function VerbPrompt({ verbConjugator }: Props) {
   let newMood: string = mood;
   const newTense = tense.english;
 
+  // "Other" mood is not displayed because gerund and past participle don't have mood
+  // "Indicative" mood is a default mood so that's why it's also not displayed
   if (mood === "Other" || mood === "Indicative") newMood = "";
 
   return (

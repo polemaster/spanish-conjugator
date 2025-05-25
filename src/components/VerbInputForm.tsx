@@ -34,7 +34,7 @@ export default function VerbInputForm({
       />
       <button
         type="submit"
-        className="mt-4 w-full h-10 bg-neutral-700 hover:bg-neutral-800 text-white font-semibold rounded transition duration-100 cursor-pointer"
+        className="mt-4 w-full h-10 bg-neutral-500 hover:bg-neutral-800 text-white font-semibold rounded transition duration-100 cursor-pointer"
       >
         Check
       </button>

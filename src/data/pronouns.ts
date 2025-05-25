@@ -1,13 +1,15 @@
 import { Person } from "../models";
 
 // Maps a Person object to a human-readable person (yo, tú...)
+// Spanish pronouns yo, tú... are displayed exactly the same on home page, however
+// on the settings page they are slightly modified (e.g. él -> él/ella/usted)
 export const pronounMap: Record<string, string> = {
   "singular.first": "yo",
   "singular.second": "tú",
-  "singular.third": "él/ella/usted",
+  "singular.third": "él",
   "plural.first": "nosotros",
   "plural.second": "vosotros",
-  "plural.third": "ellos/ellas/ustedes",
+  "plural.third": "ellos",
 };
 
 // The order here is important - in that order the elements will be displayed on
