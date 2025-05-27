@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 
 function NavBar() {
   return (
-    <nav className="flex justify-between items-center bg-neutral-800 h-16 text-white">
+    <nav className="flex justify-between items-center bg-neutral-800 h-16">
       {/* Logo / Home Link */}
-      <Link to="/" className="ml-5 text-lg">
+      <Link to="/" className="mx-5 text-lg text-center">
         Spanish conjugator
       </Link>
 
@@ -12,6 +12,9 @@ function NavBar() {
       <div className="flex h-full">
         <Link to="/" className="nav-item">
           Home
+        </Link>
+        <Link to="/theory" className="nav-item">
+          Theory
         </Link>
         <Link to="/settings" className="nav-item">
           Settings
