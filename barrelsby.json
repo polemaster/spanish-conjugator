@@ -1,11 +1,18 @@
 {
   "directory": [
+    "src/components",
+    "src/contexts",
     "src/data",
-    "src/hooks",
     "src/models",
-    "src/utils",
-    "src/services",
-    "src/contexts"
+    "src/pages/home/components",
+    "src/pages/home/hooks",
+    "src/pages/home/models",
+    "src/pages/home/services",
+    "src/pages/home/utils",
+    "src/pages/settings/components",
+    "src/pages/settings/data",
+    "src/pages/settings/hooks",
+    "src/pages/theory/components"
   ],
   "delete": true,
   "structure": "flat",

@@ -1,4 +1,4 @@
-import { Person } from "../models";
+import { Person } from "models";
 
 // Maps a Person object to a human-readable person (yo, tú...)
 // Spanish pronouns yo, tú... are displayed exactly the same on home page, however
@@ -13,7 +13,7 @@ export const pronounMap: Record<string, string> = {
 };
 
 // The order here is important - in that order the elements will be displayed on
-// the css grid in /src/components/PersonSelector.tsx
+// the css grid in /src/pages/settings/components/PersonSelector.tsx
 export const allPersons: Person[] = [
   { number: "singular", person: "first" },
   { number: "singular", person: "second" },

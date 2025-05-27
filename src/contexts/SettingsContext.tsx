@@ -1,7 +1,7 @@
 import { createContext, useContext } from "react";
-import { GroupedPerson, Person, Mood } from "../models";
-import { defaultSettings } from "../data";
-import { useLocalStorage } from "../hooks";
+import { GroupedPerson, Person, Mood } from "models";
+import { defaultSettings } from "pages/settings/data";
+import { useLocalStorage } from "pages/settings/hooks";
 
 export interface Settings {
   selectedTenses: Record<Mood, string[]>;

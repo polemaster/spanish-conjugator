@@ -5,5 +5,3 @@
 export * from "./Mood";
 export * from "./Person";
 export * from "./Tense";
-export * from "./Verb";
-export * from "./VerbRow";

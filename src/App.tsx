@@ -1,9 +1,9 @@
 import { Route, Routes } from "react-router-dom";
 import { SettingsProvider } from "./contexts/SettingsContext";
-import HomePage from "./pages/HomePage";
-import SettingsPage from "./pages/SettingsPage";
-import NavBar from "./components/NavBar";
-import TheoryPage from "./pages/TheoryPage";
+import { HomePage } from "./pages/home/HomePage";
+import { SettingsPage } from "./pages/settings/SettingsPage";
+import { TheoryPage } from "./pages/theory/TheoryPage";
+import { NavBar } from "./components/NavBar";
 
 function App() {
   return (

@@ -1,4 +1,4 @@
-import { Mood, Tense } from "../models";
+import { Mood, Tense } from "models";
 
 export const tenseData: Record<Mood, Tense[]> = {
   Indicative: [
