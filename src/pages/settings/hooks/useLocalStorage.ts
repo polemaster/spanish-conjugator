@@ -31,7 +31,7 @@ export function useLocalStorage<T>(
   useEffect(() => {
     localStorage.setItem(key, JSON.stringify(state));
     localStorage.setItem(versionKey, version);
-  }, [state]);
+  }, [state, version, key, versionKey]);
 
   return [state, setState];
 }

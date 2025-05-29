@@ -50,3 +50,7 @@
   align-items: center;
   justify-content: center;
 }
+
+@utility ul-list {
+  @apply list-disc pl-5 space-y-2;
+}

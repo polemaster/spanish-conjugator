@@ -3,3 +3,5 @@
  */
 
 export * from "./Sidebar";
+export * from "./PresentSimple";
+export * from "./PresentSubjunctive";
