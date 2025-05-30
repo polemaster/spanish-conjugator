@@ -15,7 +15,7 @@ export function ScoreDisplay({ allVerbsScore, correctVerbsScore }: Props) {
 
   return (
     <div
-      className={`flex items-center shadow my-5 h-10 p-4 rounded bg-neutral-600 ${color}`}
+      className={`flex items-center shadow my-5 h-10 p-4 rounded bg-neutral-700 ${color}`}
     >
       Score: {correctVerbsScore} / {allVerbsScore} ({percentageScore} %)
     </div>

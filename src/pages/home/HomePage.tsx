@@ -43,25 +43,23 @@ export function HomePage() {
   };
 
   return (
-    <main>
-      <div className="mx-auto w-90">
-        <FeedbackMessage
-          messageType={answer}
-          correctVerb={correctVerb}
-          isVisible={showFeedback}
-        />
-        <ScoreDisplay
-          correctVerbsScore={correctVerbsScore}
-          allVerbsScore={allVerbsScore}
-        />
-        <VerbInputForm
-          value={userInputVerb}
-          onChange={setUserInputVerb}
-          onSubmit={handleSubmit}
-        >
-          <VerbPrompt verbConjugator={verbConjugator} />
-        </VerbInputForm>
-      </div>
+    <main className="mx-auto w-90 mt-25">
+      <FeedbackMessage
+        messageType={answer}
+        correctVerb={correctVerb}
+        isVisible={showFeedback}
+      />
+      <ScoreDisplay
+        correctVerbsScore={correctVerbsScore}
+        allVerbsScore={allVerbsScore}
+      />
+      <VerbInputForm
+        value={userInputVerb}
+        onChange={setUserInputVerb}
+        onSubmit={handleSubmit}
+      >
+        <VerbPrompt verbConjugator={verbConjugator} />
+      </VerbInputForm>
     </main>
   );
 }

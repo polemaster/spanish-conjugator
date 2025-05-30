@@ -10,7 +10,7 @@ export function TenseGroup({ mood }: { mood: Mood }) {
       <h2 className="text-lg font-semibold mb-2">{mood}</h2>
       <div className="rounded-lg overflow-hidden border border-neutral-400">
         <table className="w-full text-left">
-          <thead className="bg-zinc-500">
+          <thead className="bg-neutral-500">
             <tr>
               <th className="p-2 w-10"></th>
               <th className="p-2">Spanish</th>

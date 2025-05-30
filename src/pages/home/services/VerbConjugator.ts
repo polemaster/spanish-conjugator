@@ -1,4 +1,5 @@
-import { Verb, Mood, Tense, Person, GroupedPerson } from "models";
+import { Mood, Tense, Person, GroupedPerson } from "models";
+import { Verb } from "pages/home/models";
 import { RandomSelector } from ".";
 import { getFullTense } from "data";
 import { convertTense } from "pages/home/utils";

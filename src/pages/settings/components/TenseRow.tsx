@@ -14,7 +14,7 @@ export function TenseRow({ tense, mood }: Props) {
     <tr
       onClick={() => toggleTense(mood, tense.english)}
       className={`cursor-pointer ${
-        selected ? "bg-neutral-500" : "hover:bg-neutral-400 "
+        selected ? "bg-neutral-600" : "hover:bg-neutral-500 "
       }`}
     >
       <td className="p-2">
@@ -24,7 +24,7 @@ export function TenseRow({ tense, mood }: Props) {
             checked={selected}
             onChange={() => toggleTense(mood, tense.english)}
             onClick={(e) => e.stopPropagation()}
-            className="h-5 w-5 cursor-pointer accent-neutral-700"
+            className="h-5 w-5 cursor-pointer accent-neutral-800"
           />
         </div>
       </td>

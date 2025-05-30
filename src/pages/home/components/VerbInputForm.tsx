@@ -15,7 +15,7 @@ export function VerbInputForm({ value, onChange, onSubmit, children }: Props) {
   }, []);
 
   return (
-    <form onSubmit={onSubmit} className="p-4 shadow rounded bg-neutral-600">
+    <form onSubmit={onSubmit} className="p-4 shadow-lg rounded bg-neutral-700 ">
       <div className="mb-4">{children}</div>
       <input
         type="text"
@@ -26,7 +26,7 @@ export function VerbInputForm({ value, onChange, onSubmit, children }: Props) {
       />
       <button
         type="submit"
-        className="mt-4 w-full h-10 bg-neutral-500 hover:bg-neutral-800 font-semibold rounded transition duration-100 cursor-pointer"
+        className="mt-4 w-full h-10 bg-neutral-600 hover:bg-neutral-800 font-semibold rounded transition duration-100 cursor-pointer"
       >
         Check
       </button>

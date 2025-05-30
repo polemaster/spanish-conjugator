@@ -13,8 +13,8 @@ export function PersonButton({ person }: Props) {
 
   const baseStyles =
     "px-2 col-span-4 md:col-span-3 py-2 rounded-xl flex items-center justify-between font-semibold transition-all duration-200 shadow-sm hover:shadow-md cursor-pointer border border-neutral-400 select-none";
-  const activeStyles = "bg-neutral-500 ";
-  const inactiveStyles = "bg-neutral-600  hover:bg-neutral-400";
+  const activeStyles = "bg-neutral-600 ";
+  const inactiveStyles = "bg-neutral-700  hover:bg-neutral-500";
 
   // Widen third person because it contains more text
   const widthClass = person.person === "third" ? "md:col-span-4" : "";
@@ -34,7 +34,7 @@ export function PersonButton({ person }: Props) {
         type="checkbox"
         checked={selected}
         readOnly
-        className="form-checkbox flex-none accent-neutral-700 w-4 h-4 pointer-events-none"
+        className="form-checkbox flex-none accent-neutral-800 w-4 h-4 pointer-events-none"
       />
       <span className="flex-auto">{displayedProunoun}</span>
     </div>

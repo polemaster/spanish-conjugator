@@ -1,7 +1,6 @@
 export function PresentSimple() {
   return (
     <div>
-      <h1>Present simple</h1>
       <h2>Regular verbs</h2>
       <h3>
         <em>-Ar</em> Verbs

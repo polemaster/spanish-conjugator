@@ -3,7 +3,7 @@
 @layer base {
   body {
     color: white;
-    @apply bg-neutral-700;
+    @apply bg-neutral-800;
   }
 
   h1,
@@ -32,16 +32,16 @@
 
 @layer components {
   .settings-box {
-    @apply px-6 py-4 mb-4 rounded-2xl shadow-xl bg-neutral-600 text-center;
+    @apply px-6 pb-4 pt-2 mb-4 rounded-2xl shadow-xl bg-neutral-700 text-center;
   }
   .person-box {
     @apply col-span-12 md:col-span-2 flex items-center justify-center uppercase;
   }
   .nav-item {
-    @apply flex items-center px-7 text-lg hover:bg-neutral-600 transition duration-200 cursor-pointer;
+    @apply flex items-center px-7 text-lg hover:bg-neutral-700 transition duration-200 cursor-pointer;
   }
   .my-input {
-    @apply px-2 py-2 text-lg bg-neutral-700 rounded focus:outline-none;
+    @apply px-2 py-2 text-lg bg-neutral-800 rounded focus:outline-none;
   }
 }
 

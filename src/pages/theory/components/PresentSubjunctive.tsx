@@ -1,7 +1,6 @@
 export function PresentSubjunctive() {
   return (
-    <div>
-      <h1>Present subjuntive</h1>
+    <>
       <p>
         The present subjunctive cannot exist alone. Another element in the
         sentence always causes it to be used. The subjunctive is often needed
@@ -126,6 +125,6 @@ export function PresentSubjunctive() {
         subjunctive mood in the dependent clause. The subject in the main clause
         must be different from the subject in the dependent clause.
       </p>
-    </div>
+    </>
   );
 }
