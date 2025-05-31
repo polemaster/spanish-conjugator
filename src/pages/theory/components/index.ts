@@ -4,5 +4,6 @@
 
 export * from "./PresentSimple";
 export * from "./PresentSubjunctive";
+export * from "./PresentContinuous";
 export * from "./Sidebar";
 export * from "./TheorySection";
