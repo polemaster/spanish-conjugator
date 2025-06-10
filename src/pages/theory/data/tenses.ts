@@ -2,6 +2,11 @@ import {
   PresentSimple,
   PresentSubjunctive,
   PresentContinuous,
+  PastContinuousImperfect,
+  PastContinuousPreterite,
+  Imperfect,
+  Preterite,
+  Imperative,
 } from "../components";
 
 export interface TenseItem {
@@ -22,5 +27,29 @@ export const TENSES: TenseItem[] = [
     label: "Present Continuous",
     component: PresentContinuous,
   },
-  // add more: { id: "past_perfect", label: "Past Perfect", component: PastPerfect },
+  {
+    id: "preterite",
+    label: "Preterite",
+    component: Preterite,
+  },
+  {
+    id: "imperfect",
+    label: "Imperfect",
+    component: Imperfect,
+  },
+  {
+    id: "imperfect_progressive",
+    label: "Past Continuous (Imperfect Progressive)",
+    component: PastContinuousImperfect,
+  },
+  {
+    id: "preterite_progressive",
+    label: "Past Continuous (Preterite Progressive)",
+    component: PastContinuousPreterite,
+  },
+  {
+    id: "imperative",
+    label: "Imperative",
+    component: Imperative,
+  },
 ];
