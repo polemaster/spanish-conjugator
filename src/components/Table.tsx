@@ -18,9 +18,9 @@ export function Table<T extends object>({
   const columnKeys = Object.keys(data[0]) as (keyof T)[];
 
   return (
-    <div className="overflow-x-auto my-5">
-      <table className="min-w-full text-sm text-left">
-        <thead className="text-xs uppercase border-b">
+    <div className="overflow-x-auto my-5 flex-center">
+      <table className="text-left ">
+        <thead className="text-sm uppercase border-b">
           <tr>
             {columnKeys.map((key) => (
               <th key={String(key)} className="px-4 py-3">
@@ -30,6 +30,10 @@ export function Table<T extends object>({
           </tr>
         </thead>
         <tbody>
+          {/* Empty row for space between headers and body */}
+          <tr className="h-3">
+            <td colSpan={columnKeys.length}></td>
+          </tr>
           {data.map((row, rowIndex) => (
             <tr key={rowIndex} className="">
               {columnKeys.map((key) => (

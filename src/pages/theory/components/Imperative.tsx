@@ -25,8 +25,12 @@ export function Imperative() {
     },
     {
       Person: "vosotros",
-      Affirmative: "?",
-      Negative: "?",
+      Affirmative: (
+        <>
+          drop <strong>-r</strong> and add <strong>-d</strong>
+        </>
+      ),
+      Negative: "= present subjuntive",
     },
     {
       Person: "ustedes",
@@ -75,7 +79,8 @@ export function Imperative() {
   ];
 
   return (
-    <div>
+    <div className="text-center">
+      <br />
       <h2>Rules</h2>
       <Table
         data={rules}
@@ -83,10 +88,12 @@ export function Imperative() {
           Person: (Person: string) => <strong>{Person}</strong>,
         }}
       />
+      <br />
       <h2>
-        Examples <em>(bailar, comer, dormir)</em>
+        Examples: <em>bailar, comer, dormir</em>
       </h2>
       <Table data={examples} />
+      <br />
       <h2>Irregulars</h2>
       <Table
         data={irregulars}

@@ -45,10 +45,12 @@
   }
 }
 
+/* Doesn't work */
 @utility flex-center {
-  display: flexbox;
-  align-items: center;
-  justify-content: center;
+  /* display: flexbox; */
+  /* align-items: center; */
+  /* justify-content: center; */
+  @apply flex justify-center items-center;
 }
 
 @utility ul-list {
