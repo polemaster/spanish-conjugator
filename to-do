@@ -1,5 +1,6 @@
 Fixes:
 20. update tsconfig.json
+22. change conjugations in theory to be taken from verbs
 
 Adding new features/improvements:
 4. add other pages:
@@ -8,4 +9,4 @@ Adding new features/improvements:
 7. use context for verbs? - faster loading when moving between pages; change max value of top n popular verbs in settings
 18. Write more most popular verbs manually
 19. Add theme switch (light / dark mode)
-20. Check contrast ratio between fg and bg - found indigo to have only 4.6 ratio
+21. Check contrast ratio between fg and bg - found indigo to have only 4.6 ratio

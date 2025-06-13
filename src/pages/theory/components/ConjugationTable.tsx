@@ -4,6 +4,7 @@ type ConjugationTableProps = {
   data: string[]; // Should have exactly 6 entries
   title?: string;
   persons?: string[];
+  pronouns?: boolean;
 };
 
 // TO-DO: change to randomly select el ella Ud. and plural too
@@ -13,6 +14,7 @@ export function ConjugationTable({
   title = "",
   data,
   persons = defaultPersons,
+  pronouns = true,
 }: ConjugationTableProps) {
   if (data.length !== 6 || persons.length !== 6) {
     console.warn(
@@ -32,19 +34,29 @@ export function ConjugationTable({
   }));
 
   return (
-    <div className="table-wrapper ">
+    <div className="table-wrapper">
       <table className="table-base">
         <thead className={title ? "table-header" : "hidden"}>
           <tr>
-            <th className="table-th">{title}</th>
+            <th colSpan={4} className="table-th">
+              {title}
+            </th>
           </tr>
         </thead>
         <tbody>
+          {/* Empty row for space between headers and body */}
+          <tr className="h-3">
+            <td colSpan={4}></td>
+          </tr>
           {leftSide.map((leftRow, i) => (
             <tr key={i} className="">
-              <td className="table-td">{leftRow.person}</td>
+              {pronouns && <td className="table-td">{leftRow.person}</td>}
               <td className="table-td">{leftRow.value}</td>
-              <td className="table-td">{rightSide[i].person}</td>
+              {pronouns && (
+                <td className="table-td border-l border-neutral-400">
+                  {rightSide[i].person}
+                </td>
+              )}
               <td className="table-td">{rightSide[i].value}</td>
             </tr>
           ))}
