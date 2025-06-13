@@ -18,12 +18,12 @@ export function Table<T extends object>({
   const columnKeys = Object.keys(data[0]) as (keyof T)[];
 
   return (
-    <div className="overflow-x-auto my-5 flex-center">
-      <table className="text-left ">
-        <thead className="text-sm uppercase border-b">
+    <div className="table-wrapper flex-center">
+      <table className="table-base">
+        <thead className="table-header">
           <tr>
             {columnKeys.map((key) => (
-              <th key={String(key)} className="px-4 py-3">
+              <th key={String(key)} className="table-th">
                 {String(key)}
               </th>
             ))}
@@ -37,7 +37,7 @@ export function Table<T extends object>({
           {data.map((row, rowIndex) => (
             <tr key={rowIndex} className="">
               {columnKeys.map((key) => (
-                <td key={String(key)} className="px-4 py-2">
+                <td key={String(key)} className="table-td">
                   {renderers[key]
                     ? renderers[key]!(row[key], row)
                     : (row[key] as React.ReactNode)}
