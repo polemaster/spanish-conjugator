@@ -14,7 +14,7 @@ export function ConjugationTable({
   title = "",
   data,
   persons = defaultPersons,
-  pronouns = true,
+  pronouns = false,
 }: ConjugationTableProps) {
   if (data.length !== 6 || persons.length !== 6) {
     console.warn(

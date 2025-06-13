@@ -29,14 +29,17 @@ export function PresentSimple() {
         <ConjugationTable
           data={["-o", "-as", "-a", "-amos", "-áis", "-an"]}
           title="-ar verbs"
+          pronouns={true}
         />
         <ConjugationTable
           data={["-o", "-es", "-e", "-emos", "-éis", "-en"]}
           title="-er verbs"
+          pronouns={true}
         />
         <ConjugationTable
           data={["-o", "-es", "-e", "-imos", "-ís", "-en"]}
           title="-ir verbs"
+          pronouns={true}
         />
       </div>
       <h2>Irregular verbs</h2>

@@ -125,10 +125,12 @@ export function PresentSubjunctive() {
         <ConjugationTable
           data={["-e", "-es", "-e", "-emos", "-éis", "-en"]}
           title="-ar verbs"
+          pronouns={true}
         />
         <ConjugationTable
           data={["-a", "-as", "-a", "-amos", "-áis", "-an"]}
           title="-er & -ir verbs"
+          pronouns={true}
         />
       </div>
 
@@ -146,26 +148,10 @@ export function PresentSubjunctive() {
       <h3>Examples</h3>
 
       <div className="grid grid-cols-2 gap-x-8 place-items-center">
-        <ConjugationTable
-          data={pensar_conjugation}
-          title="pensar"
-          pronouns={false}
-        />
-        <ConjugationTable
-          data={querer_conjugation}
-          title="querer"
-          pronouns={false}
-        />
-        <ConjugationTable
-          data={vivir_conjugation}
-          title="vivir"
-          pronouns={false}
-        />
-        <ConjugationTable
-          data={mentir_conjugation}
-          title="mentir"
-          pronouns={false}
-        />
+        <ConjugationTable data={pensar_conjugation} title="pensar" />
+        <ConjugationTable data={querer_conjugation} title="querer" />
+        <ConjugationTable data={vivir_conjugation} title="vivir" />
+        <ConjugationTable data={mentir_conjugation} title="mentir" />
       </div>
 
       <h2>
@@ -180,16 +166,8 @@ export function PresentSubjunctive() {
       </p>
 
       <div className="grid grid-cols-2 gap-x-8 place-items-center">
-        <ConjugationTable
-          data={conocer_conjugation}
-          title="conocer"
-          pronouns={false}
-        />
-        <ConjugationTable
-          data={venir_conjugation}
-          title="venir"
-          pronouns={false}
-        />
+        <ConjugationTable data={conocer_conjugation} title="conocer" />
+        <ConjugationTable data={venir_conjugation} title="venir" />
       </div>
 
       <h2>Irregular Verbs</h2>
@@ -200,24 +178,12 @@ export function PresentSubjunctive() {
       </p>
 
       <div className="grid grid-cols-2 gap-x-8 place-items-center sm:grid-cols-3">
-        <ConjugationTable data={dar_conjugation} title="dar" pronouns={false} />
-        <ConjugationTable
-          data={estar_conjugation}
-          title="estar"
-          pronouns={false}
-        />
-        <ConjugationTable data={ir_conjugation} title="ir" pronouns={false} />
-        <ConjugationTable
-          data={saber_conjugation}
-          title="saber"
-          pronouns={false}
-        />
-        <ConjugationTable data={ser_conjugation} title="ser" pronouns={false} />
-        <ConjugationTable
-          data={haber_conjugation}
-          title="haber"
-          pronouns={false}
-        />
+        <ConjugationTable data={dar_conjugation} title="dar" />
+        <ConjugationTable data={estar_conjugation} title="estar" />
+        <ConjugationTable data={ir_conjugation} title="ir" />
+        <ConjugationTable data={saber_conjugation} title="saber" />
+        <ConjugationTable data={ser_conjugation} title="ser" />
+        <ConjugationTable data={haber_conjugation} title="haber" />
       </div>
 
       <h2>Verbs with Orthographic Changes</h2>
