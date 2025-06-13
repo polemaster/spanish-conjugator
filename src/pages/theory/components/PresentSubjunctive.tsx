@@ -121,7 +121,7 @@ export function PresentSubjunctive() {
         <strong>-o</strong> and add:
       </p>
 
-      <div className="flex-center flex-col sm:grid sm:grid-cols-2 sm:gap-x-8 ">
+      <div className="flex-center flex-col sm:grid sm:grid-cols-2 sm:gap-x-8 place-items-center">
         <ConjugationTable
           data={["-e", "-es", "-e", "-emos", "-éis", "-en"]}
           title="-ar verbs"

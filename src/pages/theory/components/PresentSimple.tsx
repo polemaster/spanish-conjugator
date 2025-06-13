@@ -25,7 +25,7 @@ export function PresentSimple() {
         To conjugate regular verbs in the present tense, drop the infinitive
         ending and add:
       </p>
-      <div className="flex-center flex-col md:grid md:grid-cols-2 md:gap-x-8 ">
+      <div className="flex-center flex-col md:grid md:grid-cols-2 md:gap-x-8 place-items-center">
         <ConjugationTable
           data={["-o", "-as", "-a", "-amos", "-áis", "-an"]}
           title="-ar verbs"
@@ -36,6 +36,9 @@ export function PresentSimple() {
           title="-er verbs"
           pronouns={true}
         />
+      </div>
+
+      <div className="flex-center">
         <ConjugationTable
           data={["-o", "-es", "-e", "-imos", "-ís", "-en"]}
           title="-ir verbs"
