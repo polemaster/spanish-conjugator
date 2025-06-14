@@ -1,3 +1,4 @@
+import { ExpandableSection } from "components/ExpandableSection";
 import { ConjugationTable } from "./ConjugationTable";
 
 export function PresentSubjunctive() {
@@ -85,7 +86,7 @@ export function PresentSubjunctive() {
   ];
 
   return (
-    <>
+    <div>
       <p>
         The present subjunctive cannot exist alone. Another element in the
         sentence always causes it to be used. The subjunctive is often needed
@@ -210,31 +211,88 @@ export function PresentSubjunctive() {
       <br />
       <h2>Uses of the Present Subjunctive</h2>
 
-      <h3>After Certain Impersonal Expressions</h3>
-      <p>
-        A sentence or question may consist of a main clause and a dependent or
-        subordinate clause connected by the Spanish conjunction{" "}
-        <strong>que</strong>.
-      </p>
+      <ExpandableSection title="After Certain Impersonal Expressions">
+        <p>
+          A sentence or question may consist of a main clause and a dependent or
+          subordinate clause connected by the Spanish conjunction{" "}
+          <strong>que</strong>.
+        </p>
+        <p>
+          Here is a sentence with a main clause and a subordinate clause in the
+          indicative mood.
+        </p>
 
-      <p>
-        Here is a sentence with a main clause and a subordinate clause in the
-        indicative mood.
-      </p>
-      <img
-        className="w-full h-auto rounded-lg shadow-md"
-        alt="Images"
-        src="src/assets/f0212-01.jpg"
-      />
+        <img
+          className="w-full h-auto rounded-lg shadow-md"
+          alt="Images"
+          src="src/assets/f0212-01.jpg"
+        />
+      </ExpandableSection>
+      <ExpandableSection title="After Certain Verbs">
+        <h4>Expressing Wishes or Preferences</h4>
+        <p>
+          Verbs that express wishes or preferences{" "}
+          <em>with regard to other people</em> in the main clause will cause the
+          subjunctive mood in the dependent clause. The subject in the main
+          clause must be different from the subject in the dependent clause.
+        </p>
+      </ExpandableSection>
+      <ExpandableSection title="After Certain Conjunctions">
+        To be filled...
+      </ExpandableSection>
 
-      <h4>After Certain Verbs</h4>
-      <h4>Expressing Wishes or Preferences</h4>
-      <p>
-        Verbs that express wishes or preferences{" "}
-        <em>with regard to other people</em> in the main clause will cause the
-        subjunctive mood in the dependent clause. The subject in the main clause
-        must be different from the subject in the dependent clause.
-      </p>
-    </>
+      <ExpandableSection
+        title=<>
+          After <em>cuando</em>
+        </>
+      >
+        To be filled...
+      </ExpandableSection>
+      <ExpandableSection title="In Certain Dependent Adjective Clauses">
+        To be filled...
+      </ExpandableSection>
+      <ExpandableSection
+        title=<>
+          After the Expressions <em>por más que</em> and <em>por mucho que</em>
+        </>
+      >
+        To be filled...
+      </ExpandableSection>
+      <ExpandableSection
+        title=<>
+          After <em>ojalá</em>
+        </>
+      >
+        To be filled...
+      </ExpandableSection>
+      <ExpandableSection
+        title=<>
+          After <em>acaso, quizás</em> and <em>tal vez</em>
+        </>
+      >
+        To be filled...
+      </ExpandableSection>
+      <ExpandableSection
+        title=<>
+          After <em>aunque</em>
+        </>
+      >
+        To be filled...
+      </ExpandableSection>
+      <ExpandableSection
+        title=<>
+          After Compounds of <em>-quiera</em>
+        </>
+      >
+        To be filled...
+      </ExpandableSection>
+      <ExpandableSection
+        title=<>
+          After <em>como</em>
+        </>
+      >
+        To be filled...
+      </ExpandableSection>
+    </div>
   );
 }

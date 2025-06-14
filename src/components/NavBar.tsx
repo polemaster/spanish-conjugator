@@ -2,9 +2,10 @@ import { Link } from "react-router-dom";
 
 export function NavBar() {
   return (
+    // needed to add z-50 here because ▸ symbol was overlapping it
     <nav
       className="fixed top-0 left-0 w-full flex justify-between items-center
-      bg-neutral-800 h-16 border-b border-neutral-400"
+      bg-neutral-800 h-16 border-b border-neutral-400 z-50"
     >
       <Link to="/" className="mx-5 text-lg text-center">
         Spanish conjugator
