@@ -1,4 +1,4 @@
-import { ExpandableSection } from "components/ExpandableSection";
+import { Columns, Column, ExpandableSection } from "components";
 import { ConjugationTable } from "./ConjugationTable";
 
 export function PresentSubjunctive() {
@@ -11,12 +11,12 @@ export function PresentSubjunctive() {
     "piensen",
   ];
   const querer_conjugation = [
-    "piense",
-    "pienses",
-    "piense",
-    "pensemos",
-    "penséis",
-    "piensen",
+    "quiera",
+    "quieras",
+    "quiera",
+    "queramos",
+    "queráis",
+    "quieran",
   ];
   const vivir_conjugation = [
     "viva",
@@ -88,11 +88,14 @@ export function PresentSubjunctive() {
   return (
     <div>
       <p>
-        The present subjunctive cannot exist alone. Another element in the
-        sentence always causes it to be used. The subjunctive is often needed
-        after the following elements.
+        The subjunctive mood cannot exist alone; it must always be caused by
+        some other element in the sentence. This is a mood that expresses
+        wishes, doubts, and what is possible, rather than what is certain. The
+        present subjunctive in a dependent clause is caused by the present tense
+        in the main clause.
       </p>
 
+      <br />
       <h2>Formation of the Present Subjunctive</h2>
       <ul className="ul-list">
         <li>
@@ -114,6 +117,7 @@ export function PresentSubjunctive() {
         </li>
       </ul>
 
+      <br />
       <h2>Conjugation</h2>
 
       <p>
@@ -148,7 +152,7 @@ export function PresentSubjunctive() {
 
       <h3>Examples</h3>
 
-      <div className="grid grid-cols-2 gap-x-8 place-items-center">
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-x-8">
         <ConjugationTable data={pensar_conjugation} title="pensar" />
         <ConjugationTable data={querer_conjugation} title="querer" />
         <ConjugationTable data={vivir_conjugation} title="vivir" />
@@ -221,12 +225,31 @@ export function PresentSubjunctive() {
           Here is a sentence with a main clause and a subordinate clause in the
           indicative mood.
         </p>
-
-        <img
-          className="w-full h-auto rounded-lg shadow-md"
-          alt="Images"
-          src="src/assets/f0212-01.jpg"
-        />
+        <Columns>
+          <Column format="upper">
+            <div>the main clause</div>
+            <div>the dependent clause</div>
+          </Column>
+          <Column>
+            <div>Él sabe</div>
+            <div>que yo cocino bien.</div>
+          </Column>
+        </Columns>
+        <p>
+          However, suppose that the main clause has an impersonal expression,
+          such as <strong>Es dudoso</strong>. This causes the subjunctive to be
+          used in the dependent clause.
+        </p>
+        <Columns>
+          <Column>
+            <div>
+              Es dudoso que yo <strong>cocine</strong> bien.
+            </div>
+          </Column>
+          <Column format="italic">
+            <div>It is doubtful that I cook well.</div>
+          </Column>
+        </Columns>
       </ExpandableSection>
       <ExpandableSection title="After Certain Verbs">
         <h4>Expressing Wishes or Preferences</h4>

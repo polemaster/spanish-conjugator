@@ -1,4 +1,4 @@
-import { Table } from "components/Table";
+import { Table, Columns, Column } from "components";
 
 export function PresentContinuous() {
   const conjugation = [{ "-ar": "-ando", "-er & -ir": "-iendo" }];
@@ -106,10 +106,14 @@ export function PresentContinuous() {
         <strong>-iendo</strong> in order to avoid having three vowels in a row.
         These are not irregular forms; it is an orthographic change.
       </p>
-      <div className="flex justify-around">
-        <div>leer &rarr; leyendo</div>
-        <div>traer &rarr; trayendo</div>
-      </div>
+      <Columns>
+        <Column>
+          <div>leer &rarr; leyendo</div>
+        </Column>
+        <Column>
+          <div>traer &rarr; trayendo</div>
+        </Column>
+      </Columns>
       <br />
 
       <h2>
@@ -151,10 +155,14 @@ export function PresentContinuous() {
         <li>The object pronouns may be attached to the gerund.</li>
       </ul>
 
-      <div className="my-3 flex justify-around">
-        <em>Los estamos buscando</em>
-        <em>Estamos buscándolos</em>
-      </div>
+      <Columns>
+        <Column format="italic">
+          <div>Los estamos buscando</div>
+        </Column>
+        <Column format="italic">
+          <div>Estamos buscándolos</div>
+        </Column>
+      </Columns>
 
       <br />
 

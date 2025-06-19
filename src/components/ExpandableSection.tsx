@@ -1,15 +1,28 @@
 import React, { useState } from "react";
 
+type SizeOption = "small" | "medium" | "large";
+
 type ExpandableSectionProps = {
   title: React.ReactNode;
   children: React.ReactNode;
+  size?: SizeOption;
 };
 
 export const ExpandableSection: React.FC<ExpandableSectionProps> = ({
   title,
   children,
+  size = "medium",
 }) => {
   const [open, setOpen] = useState(false);
+
+  // Map size to heading level
+  const sizeToHeading: Record<SizeOption, React.ElementType> = {
+    large: "h2",
+    medium: "h3",
+    small: "h4",
+  };
+
+  const HeadingTag = sizeToHeading[size];
 
   return (
     <div className="my-2">
@@ -20,7 +33,7 @@ export const ExpandableSection: React.FC<ExpandableSectionProps> = ({
         <div className="transform transition-transform duration-200">
           {open ? "▾" : "▸"}
         </div>
-        <h3 className="m-0">{title}</h3>
+        <HeadingTag className="m-0 font-normal">{title}</HeadingTag>
       </span>
 
       {open && (

@@ -1,6 +1,7 @@
 Fixes:
 20. update tsconfig.json
 22. change conjugations in theory to be taken from verbs
+23. Make expandable sections searchable
 
 Adding new features/improvements:
 4. add other pages:
