@@ -106,7 +106,7 @@ export function PresentContinuous() {
         <strong>-iendo</strong> in order to avoid having three vowels in a row.
         These are not irregular forms; it is an orthographic change.
       </p>
-      <Columns>
+      <Columns justify="center">
         <Column>
           <div>leer &rarr; leyendo</div>
         </Column>

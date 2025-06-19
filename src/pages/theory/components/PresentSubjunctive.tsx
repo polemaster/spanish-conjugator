@@ -250,6 +250,43 @@ export function PresentSubjunctive() {
             <div>It is doubtful that I cook well.</div>
           </Column>
         </Columns>
+        Here are some frequently used impersonal expressions:
+        <ExpandableSection title="Expressions" size="small">
+          <Columns>
+            <Column>
+              <div>es bueno (que)</div>
+              <div>es difícil (que)</div>
+              <div>es dudoso (que)</div>
+              <div>es fácil (que)</div>
+              <div>es imposible (que)</div>
+              <div>es importante (que)</div>
+              <div>es malo (que)</div>
+              <div>es mejor (que)</div>
+              <div>es necesario (que)</div>
+              <div>es posible (que)</div>
+              <div>es preciso (que)</div>
+              <div>es probable (que)</div>
+              <div>es una lástima (que)</div>
+              <div>es urgente (que)</div>
+            </Column>
+            <Column>
+              <div>it is good (that)</div>
+              <div>it is difficult (that)</div>
+              <div>it is doubtful (that)</div>
+              <div>it is easy (that)</div>
+              <div>it is impossible (that)</div>
+              <div>it is important (that)</div>
+              <div>it is bad (that)</div>
+              <div>it is better (that)</div>
+              <div>it is necessary (that)</div>
+              <div>it is possible (that)</div>
+              <div>it is extremely necessary (that)</div>
+              <div>it is probable (that)</div>
+              <div>it is a pity (that)</div>
+              <div>it is urgent (that)</div>
+            </Column>
+          </Columns>
+        </ExpandableSection>
       </ExpandableSection>
       <ExpandableSection title="After Certain Verbs">
         <h4>Expressing Wishes or Preferences</h4>

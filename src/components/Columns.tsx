@@ -4,12 +4,12 @@ type ColumnFormat = "upper" | "italic" | undefined;
 
 interface ColumnProps {
   format?: ColumnFormat;
-  children: React.ReactNode[];
+  children: React.ReactNode;
 }
 
 interface ColumnsProps {
   justify?: "left" | "center" | "right";
-  children: ReactElement<ColumnProps>[];
+  children: ReactElement<ColumnProps> | ReactElement<ColumnProps>[];
 }
 
 /**
@@ -27,12 +27,17 @@ export const Columns: React.FC<ColumnsProps> = ({
   justify = "left",
   children,
 }) => {
-  if (children.length === 0) {
+  // Turn whatever was passed into a flat array of ReactElement<ColumnProps>
+  const columnElements = React.Children.toArray(children)
+    .filter(React.isValidElement)
+    .map((el) => el as ReactElement<ColumnProps>);
+
+  if (columnElements.length === 0) {
     return null;
   }
 
   // Extract cells and formats from each Column
-  const columns = children.map((child) => {
+  const columns = columnElements.map((child) => {
     const format = child.props.format;
     const cells = React.Children.toArray(child.props.children);
     return { format, cells };
@@ -73,7 +78,7 @@ export const Columns: React.FC<ColumnsProps> = ({
                 else if (format === "bold") formatClass = "font-bold";
 
                 return (
-                  <td key={colIndex} className={`px-6  ${formatClass}`}>
+                  <td key={colIndex} className={`px-6 ${formatClass}`}>
                     {cell.props.children}
                   </td>
                 );
