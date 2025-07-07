@@ -1,8 +1,6 @@
 import { Verb, VerbRow } from "pages/home/models";
 import Papa from "papaparse";
 
-const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
-
 // Function to load the CSV and parse it
 export const loadVerbs = async (
   csvPath: string,

@@ -10,8 +10,8 @@ import {
 export function HomePage() {
   const [userInputVerb, setUserInputVerb] = useState("");
   const { loading, error, topVerbs } = useLoadVerbs(
-    "/data/conjugated_verbs.csv",
-    "/data/verbs_by_frequency2.csv",
+    "data/conjugated_verbs.csv",
+    "data/verbs_by_frequency2.csv",
   );
   const { answer, setAnswer, correctVerb, setCorrectVerb, showFeedback } =
     useFeedbackMessage();

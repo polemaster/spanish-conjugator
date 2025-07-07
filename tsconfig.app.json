@@ -20,9 +20,8 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
-  },
-  "compilerOptions": {
+    "noUncheckedSideEffectImports": true,
+
     "baseUrl": "src"
   },
   "include": ["src"]
