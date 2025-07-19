@@ -3,11 +3,14 @@
  */
 
 export * from "./ConjugationTable";
+export * from "./Future";
 export * from "./Imperative";
 export * from "./Imperfect";
 export * from "./PastContinuousImperfect";
 export * from "./PastContinuousPreterite";
+export * from "./PastPerfect";
 export * from "./PresentContinuous";
+export * from "./PresentPerfect";
 export * from "./PresentSimple";
 export * from "./PresentSubjunctive";
 export * from "./Preterite";

@@ -1,5 +1,3 @@
-import React from "react";
-
 type ConjugationTableProps = {
   data: string[]; // Should have exactly 6 entries
   title?: string;

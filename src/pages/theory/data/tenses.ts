@@ -7,6 +7,9 @@ import {
   Imperfect,
   Preterite,
   Imperative,
+  PresentPerfect,
+  PastPerfect,
+  Future,
 } from "../components";
 
 export interface TenseItem {
@@ -51,5 +54,20 @@ export const TENSES: TenseItem[] = [
     id: "imperative",
     label: "Imperative",
     component: Imperative,
+  },
+  {
+    id: "present_perfect",
+    label: "Present Perfect",
+    component: PresentPerfect,
+  },
+  {
+    id: "past_perfect",
+    label: "Past Perfect",
+    component: PastPerfect,
+  },
+  {
+    id: "future",
+    label: "Future",
+    component: Future,
   },
 ];
