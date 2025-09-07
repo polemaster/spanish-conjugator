@@ -13,3 +13,11 @@ Adding new features/improvements:
 19. Add theme switch (light / dark mode)
 21. Check contrast ratio between fg and bg - found indigo to have only 4.6 ratio
 
+From MacOS:
+25. Change <nav> to <header>
+26. For imperative, change 3rd persons to Ud. instead of el/ella
+27. Change Loading verbs... text to (in HomePage):
+  return <div className="mx-auto mt-25 text-center">Loading verbs....</div>;
+28. There is an error if I remove all persons from settings
+29. Remove error when going to non-existent route (errorElement prop)
+30. Change Link to NavLink to track active page

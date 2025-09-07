@@ -4,7 +4,7 @@ import { loadTopVerbs, loadVerbs } from "pages/home/services";
 import { useSettingsContext } from "contexts";
 import { getTopNVerbs } from "pages/home/utils";
 
-/*
+/**
 This function is responsible for:
 - loading all data from csv files
 - setting initial verb to conjugate
