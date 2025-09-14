@@ -1,8 +1,8 @@
-import { NavBar } from "components";
 import { Outlet } from "react-router-dom";
+import { NavBar } from "components";
 import { SettingsProvider } from "contexts";
 
-export default function PagesLayout() {
+export function PagesLayout() {
   return (
     <SettingsProvider>
       <div className="mt-16">

@@ -2,7 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { HomePage } from "./pages/home/HomePage";
 import { SettingsPage } from "./pages/settings/SettingsPage";
 import { TheoryPage } from "./pages/theory/TheoryPage";
-import PagesLayout from "PagesLayout";
+import { PagesLayout } from "PagesLayout";
 
 const router = createBrowserRouter([
   {
