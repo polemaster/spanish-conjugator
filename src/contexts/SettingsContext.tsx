@@ -27,11 +27,7 @@ const SettingsContext = createContext<{
 
 export const useSettingsContext = () => useContext(SettingsContext);
 
-export const SettingsProvider = ({
-  children,
-}: {
-  children: React.ReactNode;
-}) => {
+export function SettingsProvider({ children }: { children: React.ReactNode }) {
   const [settings, setSettings] = useLocalStorage<Settings>(
     "settings",
     defaultSettings,
@@ -104,4 +100,4 @@ export const SettingsProvider = ({
       {children}
     </SettingsContext.Provider>
   );
-};
+}
