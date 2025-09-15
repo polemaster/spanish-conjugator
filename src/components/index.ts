@@ -6,3 +6,4 @@ export * from "./Columns";
 export * from "./ExpandableSection";
 export * from "./NavBar";
 export * from "./Table";
+export * from "./LoadingSpinner";

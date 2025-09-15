@@ -3,6 +3,8 @@ import { HomePage } from "./pages/home/HomePage";
 import { SettingsPage } from "./pages/settings/SettingsPage";
 import { TheoryPage } from "./pages/theory/TheoryPage";
 import { PagesLayout } from "PagesLayout";
+import { SettingsProvider } from "contexts";
+import { VerbsProvider } from "contexts/VerbsContext";
 
 const router = createBrowserRouter([
   {
@@ -26,5 +28,11 @@ const router = createBrowserRouter([
 ]);
 
 export default function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <SettingsProvider>
+      <VerbsProvider>
+        <RouterProvider router={router} />
+      </VerbsProvider>
+    </SettingsProvider>
+  );
 }

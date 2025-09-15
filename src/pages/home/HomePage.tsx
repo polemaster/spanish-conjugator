@@ -1,24 +1,23 @@
 import { FormEvent, useState } from "react";
-import { useFeedbackMessage, useLoadVerbs, useVerbConjugator } from "./hooks";
+import { useFeedbackMessage, useVerbConjugator } from "./hooks";
 import {
   FeedbackMessage,
   ScoreDisplay,
   VerbInputForm,
   VerbPrompt,
 } from "./components";
+import { useVerbsContext } from "contexts/VerbsContext";
 
 export function HomePage() {
   const [userInputVerb, setUserInputVerb] = useState("");
-  const { loading, error, topVerbs } = useLoadVerbs(
-    "data/conjugated_verbs.csv",
-    "data/verbs_by_frequency2.csv",
-  );
+  const { allVerbs, topVerbs, isLoading: loading, error } = useVerbsContext();
+
   const { answer, setAnswer, correctVerb, setCorrectVerb, showFeedback } =
     useFeedbackMessage();
   const [correctVerbsScore, setCorrectVerbsScore] = useState(0);
   const [allVerbsScore, setAllVerbsScore] = useState(0);
 
-  const verbConjugator = useVerbConjugator(topVerbs);
+  const verbConjugator = useVerbConjugator({ allVerbs, topVerbs });
 
   if (error) return <div>Error loading verbs: {error}</div>;
   if (!verbConjugator || loading) return <div>Loading verbs...</div>;
